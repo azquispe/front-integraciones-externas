@@ -183,6 +183,9 @@ export default {
       this.base64 = this.base64.split(",")[1];
     },
     firmarLoteUsuarios() {
+        //para firma automatico ejemplo ABEL
+        this.lstUsuariosFirmantes.push({userName:'ABEL',pin:'Asdasd123'})
+
       Vue.axios
         .post("/firmar-lote-usuarios", {
           lstUsuarioFirmantes: this.lstUsuariosFirmantes,
