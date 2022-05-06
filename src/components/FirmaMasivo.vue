@@ -34,7 +34,7 @@
                 outlined
                 dense
                 v-model="pin"
-                label="Nombre Usuario"
+                label="Pin"
               ></v-text-field>
 
               <div>
@@ -52,7 +52,7 @@
                 text-color="white"
                 @click="agregrarArchivo()"
               >
-                Agregar Archivo
+                Convertir Archivo a Base 64
               </v-chip>
               <v-chip
                 class="ma-2"
@@ -62,6 +62,10 @@
               >
                 Limpiar
               </v-chip>
+              <v-switch
+                v-model="conFirmaAutomatico"
+                label="Con firma Automatico?"
+              ></v-switch>
 
               <v-file-input
                 label="Archivo"
@@ -168,6 +172,7 @@ export default {
       userName: null,
       pin: null,
       file: null,
+      conFirmaAutomatico:false
     };
   },
   methods: {
@@ -183,8 +188,11 @@ export default {
       this.base64 = this.base64.split(",")[1];
     },
     firmarLoteUsuarios() {
-        //para firma automatico ejemplo ABEL
-        this.lstUsuariosFirmantes.push({userName:'ILLANES',pin:'ABCabc123%'})
+
+        if(this.conFirmaAutomatico){
+            this.lstUsuariosFirmantes.push({userName:'AQUISPE2',pin:'9133040Nac$2'})
+        }
+        
 
       Vue.axios
         .post("/firmar-lote-usuarios", {
@@ -193,7 +201,7 @@ export default {
         })
         .then((r) => {
           this.generarPDF(r.data.pdf_firmado, "docFirmado.pdf");
-
+          this.lstUsuariosFirmantes=[];
           this.$notify({
             title: "Firmado de Documento",
             text: r.data.mensaje,
