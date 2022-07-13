@@ -21,6 +21,9 @@
           </v-chip>
         </v-col>
       </v-row>
+      <v-row>
+        
+      </v-row>
     </v-container>
 
     <v-expansion-panels  multiple>
@@ -41,7 +44,9 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
+
+import {  mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -49,10 +54,17 @@ export default {
       lstDatosFinancieros: [],
     };
   },
+    
   methods: {
+     ...mapActions("api_banco", [
+      "obtenerDatosFinancieros"
+    ]),
     async clickObtenerDatosFinancieros() {
 
-          const url =  "https://msganaseguros.dev.bg.com.bo/ganaseguros/v1/datos-financieros/obtener?numerosolicitud=26655";
+      this.obtenerDatosFinancieros(this.nroSolicitud);
+
+
+         /* const url =  "https://msganaseguros.dev.bg.com.bo/ganaseguros/v1/datos-financieros/obtener?numerosolicitud=26655";
           await Vue.axios.get(url, {
             auth: {
               username: "TOP1",
@@ -64,7 +76,7 @@ export default {
               "Topaz-Company": "1",
               "Topaz-Channel": "1",
             },
-          });
+          });*/
 
 
     },
