@@ -9,7 +9,10 @@ export default new Vuetify({
           light: {
             primary: '#004F18',
             secondary: '#81C784',
-            accent: '#C8E6C9'
+            accent: '#C8E6C9',
+
+            verde:'#98ca3f',
+            plomo_claro:'#ECEFF1'
           },
         },
       },

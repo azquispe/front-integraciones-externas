@@ -70,22 +70,6 @@ export default {
       this.setDatosFinancieros({});
       this.obtenerDatosFinancieros(this.nroSolicitud);
 
-
-         /* const url =  "https://msganaseguros.dev.bg.com.bo/ganaseguros/v1/datos-financieros/obtener?numerosolicitud=26655";
-          await Vue.axios.get(url, {
-            auth: {
-              username: "TOP1",
-              password: "SYSTEMS1",
-            },
-            headers: {
-              "Topaz-User": "TOP1",
-              "Topaz-Branch": "701",
-              "Topaz-Company": "1",
-              "Topaz-Channel": "1",
-            },
-          });*/
-
-
     },
   },
 };

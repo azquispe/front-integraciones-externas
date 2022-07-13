@@ -1,12 +1,75 @@
 <template>
   <v-app>
+
+
+     <v-navigation-drawer
+        dark
+        v-model="drawer"
+        :clipped="$vuetify.breakpoint.lgAndUp"
+        app
+        color="primary"
+      >
+        <v-list dense>
+          <template>
+            <v-list-item :to="{ name: 'inicio' }">
+              <v-list-item-action>
+                <v-icon dark small color="verde"> mdi-home </v-icon>
+              </v-list-item-action>
+              <v-list-item-title>Inicio</v-list-item-title>
+            </v-list-item>
+            <v-list-item :to="{ name: 'pruebaApiFinancieroPersonasCumulo' }">
+              <v-list-item-action>
+                <v-icon dark small color="verde">mdi-send </v-icon>
+              </v-list-item-action>
+              <v-list-item-title >Datos Financiero,<br> Personas y Cúmulo</v-list-item-title>
+            </v-list-item>
+              <v-list-item :to="{ name: 'pruebaApiDatosPersona' }">
+              <v-list-item-action>
+                <v-icon dark small color="verde">mdi-send  </v-icon>
+              </v-list-item-action>
+              <v-list-item-title>Obtiene Datos Persona</v-list-item-title>
+            </v-list-item>
+            <v-list-item :to="{ name: 'negocioLugares' }">
+              <v-list-item-action>
+                <v-icon dark small color="verde"> mdi-send  </v-icon>
+              </v-list-item-action>
+              <v-list-item-title> Obtiene Datos Cuentas</v-list-item-title>
+            </v-list-item>
+               <v-list-item :to="{ name: 'negocioLugares' }">
+              <v-list-item-action>
+                <v-icon dark small color="verde"> mdi-send  </v-icon>
+              </v-list-item-action>
+              <v-list-item-title> Valida Listas Negras</v-list-item-title>
+            </v-list-item>
+               <v-list-item :to="{ name: 'negocioLugares' }">
+              <v-list-item-action>
+                <v-icon dark small color="verde"> mdi-send  </v-icon>
+              </v-list-item-action>
+              <v-list-item-title> Obtiene Datos Financiero</v-list-item-title>
+            </v-list-item>
+               <v-list-item :to="{ name: 'negocioLugares' }">
+              <v-list-item-action>
+                <v-icon dark small color="verde"> mdi-send  </v-icon>
+              </v-list-item-action>
+              <v-list-item-title> Obtiene Cúmulo de Persona</v-list-item-title>
+            </v-list-item>
+
+          </template>
+        </v-list>
+      </v-navigation-drawer>
+
     <notifications position="bottom right" />
     <v-app-bar
-      app
-      color="primary"
-      dark
-      dense
+  
+
+         dense
+        :clipped-left="$vuetify.breakpoint.lgAndUp"
+        app
+        color="primary"
+        dark
+
     >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -44,7 +107,8 @@ export default {
   name: 'App',
 
   data: () => ({
-    //
+     drawer: null,
   }),
 };
 </script>
+
