@@ -1,3 +1,6 @@
 export const getDatosFinancieros = (state) => {
-    return state.objDatosFinancieros 
+    let lstDatosFinancieros=[];
+    lstDatosFinancieros.push(state.objDatosFinancieros);
+    
+    return lstDatosFinancieros; 
 }

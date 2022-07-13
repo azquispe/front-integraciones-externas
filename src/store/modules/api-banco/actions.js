@@ -1,7 +1,8 @@
 import Vue from 'vue'
 export const obtenerDatosFinancieros = ({commit},pNroSolicitud)=>{
     return new Promise ((resolve,reject)=>{
-        const url =  "https://msganaseguros.dev.bg.com.bo/ganaseguros/v1/datos-financieros/obtener?numerosolicitud="+pNroSolicitud;
+        //https://msganaseguros.dev.bg.com.bo/ganaseguros
+        const url =  "http://172.16.1.155:8000/ganaseguros/v1/datos-financieros/obtener?numerosolicitud="+pNroSolicitud;
         Vue.axios.get(url,{
             auth: {
                 username: "TOP1",

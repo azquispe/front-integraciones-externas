@@ -1,16 +1,18 @@
 <template>
 <div>
+  
   <v-data-table
     dense
-    :items="getLugares"
-    :headers="header_lugar"
+    :items="getDatosFinancieros"
+    :headers="header_datos_financieros"
     :hide-default-header="true"
+    hide-default-footer
     class="elevation-1"
   >
     <template v-slot:header="{ props: { headers } }">
       <thead>
         <tr>
-          <th class="subtitle-2" v-for="obj in headers" :key="obj.comercianteId">
+          <th class="subtitle-4" v-for="obj in headers" :key="obj">
             <spam class="primary--text">{{ obj.text.toUpperCase() }}</spam>
           </th>
         </tr>
@@ -18,14 +20,48 @@
     </template>
     <template v-slot:item="{ item }">
       <tr>
-        <td class="pa-2 font-weight-light caption">{{ item.comercianteId }}</td>
-        <td class="pa-2 font-weight-light caption">{{ item.departamentoId }}</td>
-        <td class="pa-2 font-weight-light caption">{{ item.direccion }}</td>
-        <td class="pa-2 font-weight-light caption">{{ item.latitud }}</td>
-        <td class="pa-2 font-weight-light caption">{{ item.longitud }}</td>
-        <td class="pa-2 font-weight-light caption">{{ item.nombreNegocio }}</td>
-        <td class="pa-2 font-weight-light caption">{{ item.descripcionNegocio }}</td>
-        <td class="pa-2 font-weight-light caption">{{ item.estadoPuntoventaId }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.tipoDeProducto }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.monedaSolicitado }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.montoSolicitado }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.plazoCredito }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.departamento }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.ciudad }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.lineaDeCredito.numero }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.lineaDeCredito.monedaAprobada }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.lineaDeCredito.montoAprobado }}</td>
+        <td class="pa-2 font-weight-light caption">{{ item.lineaDeCredito.fechaDeVigencia }}</td>
+        <td class="pa-2 font-weight-light caption">
+          <v-menu
+      bottom
+      origin="center center"
+      transition="scale-transition"
+    >
+      <template v-slot:activator="{ on, attrs }">
+     
+        
+    <v-chip
+    
+      color="primary"
+        v-bind="attrs"
+          v-on="on"
+          outlined
+          small
+    >
+      Ver deudores...
+    </v-chip>
+
+      </template>
+
+      <v-list>
+        <v-list-item
+        >
+          <v-list-item-title>{{ "dsdsdsd" }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
+
+        </td>
         <td>
           <v-icon small @click="anularLugar(item)"> fas fa-trash-alt </v-icon>
           <v-icon class="ml-4" small @click="editarLugar(item)"
@@ -38,46 +74,36 @@
 </div>
 </template>
 <script>
-import {  mapActions, mapMutations, mapGetters } from "vuex";
+import {  mapActions, mapGetters } from "vuex";
 export default {
-  props:["comercianteId"],
+ 
   data() {
     return {
 
-      header_lugar: [
-        { text: "Comerciante", value: "comercianteId" },
-        { text: "Departamento", value: "departamentoId" },
-        { text: "Dirección ", value: "direccion" },
-        { text: "Latitud ", value: "latitud" },
-        { text: "Longitud ", value: "longitud" },
-        { text: "Nombre ", value: "nombreNegocio" },
-        { text: "Descripción ", value: "descripcionNegocio" }
+      header_datos_financieros: [
+        { text: "Tipo de Producto", value: "tipoDeProducto" },
+        { text: "Moneda Solicitado", value: "monedaSolicitado" },
+        { text: "Monto Solicitado ", value: "montoSolicitado" },
+        { text: "Plazo de Crédito ", value: "plazoCredito" },
+        { text: "Departamento ", value: "departamento" },
+        { text: "Ciudad ", value: "ciudad" },
+        { text: "Línea Crédito - Número ", value: "lineaDeCredito.numero" },
+        { text: "Línea Crédito - Moneda Aprobado ", value: "lineaDeCredito.monedaAprobada" },
+        { text: "Línea Crédito - Monto Aprobado ", value: "lineaDeCredito.montoAprobado" },
+        { text: "Línea Crédito - Fecha Vigencia ", value: "lineaDeCredito.fechaDeVigencia" },
+        { text: "Deudores ", value: "" }
       ],
     };
   },
   computed: {
-    ...mapGetters("lugar", ["getLugares"]),
+    ...mapGetters("api_banco", ["getDatosFinancieros"]),
   },
   methods: {
-    ...mapActions("lugar", [
-      "obtenerLugaresByComercianteId",
-      "eliminarLugar",
+    ...mapActions("api_banco", [
     ]),
-    ...mapMutations("lugar", ["setLugar"]),
-    ...mapMutations(["openDialog"]),
 
-    editarLugar(item) {
-      this.setLugar(item);
-      this.openDialog();
-    },
-    async anularLugar(item) {
-      let lugarId = item.lugarId;
-      await this.eliminarLugar(lugarId);
-      this.obtenerLugaresByComercianteId(this.comercianteId);
-    },
-  },
-  mounted() {
-    this.obtenerLugaresByComercianteId(this.comercianteId);
-  },
+  
+  }
+
 };
 </script>

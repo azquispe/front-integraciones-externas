@@ -30,7 +30,7 @@
       <v-expansion-panel>
         <v-expansion-panel-header>Lote de Usuarios</v-expansion-panel-header>
         <v-expansion-panel-content>
-          <v-container> fgfgfgfg </v-container>
+          <v-container> <datosFinancierosComponent/></datosFinancierosComponent> </v-container>
         </v-expansion-panel-content>
       </v-expansion-panel>
 
@@ -45,9 +45,12 @@
 </template>
 <script>
 
-import {  mapActions } from "vuex";
-
+import {  mapActions, mapMutations } from "vuex";
+import datosFinancierosComponent from '@/components/TableDatosFinancierosComponent.vue'
 export default {
+  components:{
+    datosFinancierosComponent
+  },
   data() {
     return {
       nroSolicitud: 26655,
@@ -59,8 +62,12 @@ export default {
      ...mapActions("api_banco", [
       "obtenerDatosFinancieros"
     ]),
-    async clickObtenerDatosFinancieros() {
+    ...mapMutations("api_banco",[
+      "setDatosFinancieros"
+    ]),
 
+    async clickObtenerDatosFinancieros() {
+      this.setDatosFinancieros({});
       this.obtenerDatosFinancieros(this.nroSolicitud);
 
 
