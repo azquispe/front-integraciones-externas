@@ -194,8 +194,7 @@ export default {
         }
         
 
-      Vue.axios
-        .post("/firmar-lote-usuarios", {
+      Vue.axios.post("/firmar-lote-usuarios", {
           lstUsuarioFirmantes: this.lstUsuariosFirmantes,
           pdfBase64: this.base64,
         })
