@@ -4,3 +4,7 @@ export const getDatosFinancieros = (state) => {
     
     return lstDatosFinancieros; 
 }
+export const getDatosPersonas = (state) => {
+
+    return state.lstDatosPersonas;
+}

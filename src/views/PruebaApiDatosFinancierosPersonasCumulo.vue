@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div >
     <v-container>
       <v-row>
+        
         <v-col cols="12" sm="6" md="3">
           <v-text-field
             v-model="nroSolicitud"
@@ -21,56 +22,64 @@
           </v-chip>
         </v-col>
       </v-row>
-      <v-row>
-        
-      </v-row>
     </v-container>
+  <div class=" pa-4">
+      <h3 ><u>Datos Financieros</u></h3><br>
 
-    <v-expansion-panels  multiple>
-      <v-expansion-panel>
-        <v-expansion-panel-header>Lote de Usuarios</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <v-container> <datosFinancierosComponent/></datosFinancierosComponent> </v-container>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-
-      <v-expansion-panel>
-        <v-expansion-panel-header>Lote de Archivos</v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <v-container> asdsas </v-container>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
+<datosFinancierosComponent/><br>
+<h3><u>Datos Persona</u></h3><br>
+<tableDatosPersonaComponent/>
+  </div>
+  
   </div>
 </template>
 <script>
 
 import {  mapActions, mapMutations } from "vuex";
 import datosFinancierosComponent from '@/components/TableDatosFinancierosComponent.vue'
+import tableDatosPersonaComponent from '@/components/TableDatosPersonaComponent.vue'
 export default {
   components:{
-    datosFinancierosComponent
+    datosFinancierosComponent,
+    tableDatosPersonaComponent
   },
   data() {
     return {
-      nroSolicitud: 26655,
+      nroSolicitud: 25873,
       lstDatosFinancieros: [],
     };
   },
     
   methods: {
      ...mapActions("api_banco", [
-      "obtenerDatosFinancieros"
+      "obtenerDatosFinancieros",
+      "obtenerDatosPersona"
     ]),
     ...mapMutations("api_banco",[
-      "setDatosFinancieros"
+      "setDatosPersonas"
     ]),
 
     async clickObtenerDatosFinancieros() {
-      this.setDatosFinancieros({});
-      this.obtenerDatosFinancieros(this.nroSolicitud);
+      let r = await this.obtenerDatosFinancieros(this.nroSolicitud);
 
-    },
+     console.log("dsdsd: "+r.data.deudores);
+      let lstDeudores = []
+     
+        for (const deudor of r.data.deudores) {
+        console.log(deudor);
+        if(deudor.extensionIdentificacion.trim()!=""){
+           
+
+          let rr =  await    this.obtenerDatosPersona({tipoDocumento:deudor.tipoIdentificacion,
+         extension:deudor.extensionIdentificacion,numeroDocumento:deudor.numerodeIdentifiacion});
+        lstDeudores.push(rr.data);
+
+        }
+          
+      };
+this.setDatosPersonas(lstDeudores);
+
+    }
   },
 };
 </script>

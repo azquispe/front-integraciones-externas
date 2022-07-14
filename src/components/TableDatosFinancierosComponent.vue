@@ -47,15 +47,20 @@
           outlined
           small
     >
-      Ver deudores...
+      Ver mas...
     </v-chip>
 
       </template>
 
       <v-list>
-        <v-list-item
+        <v-list-item v-for="deudor in item.deudores" :key="deudor"
         >
-          <v-list-item-title>{{ "dsdsdsd" }}</v-list-item-title>
+        <div>
+           <span class="caption"><b>{{deudor.tipoIdentificacion}}:</b> {{deudor.numerodeIdentifiacion+" "+deudor.complementoIdentificacion+" "+deudor.extensionIdentificacion }}</span>
+           <br> <span class="caption"><b>Tipo Deudor:</b> {{deudor.tipoDeDeudor}}</span>
+           <v-divider></v-divider>
+        </div>
+        
         </v-list-item>
       </v-list>
     </v-menu>

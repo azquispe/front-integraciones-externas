@@ -1,3 +1,4 @@
 export default {
-    objDatosFinancieros:{}
+    objDatosFinancieros:{},
+    lstDatosPersonas:[]
 }
