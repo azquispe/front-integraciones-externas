@@ -13,7 +13,7 @@
       <thead>
         <tr>
           <th class="subtitle-4" v-for="obj in headers" :key="obj">
-            <spam class="primary--text">{{ obj.text.toUpperCase() }}</spam>
+            <spam class="verde_oscuro--text">{{ obj.text.toUpperCase() }}</spam>
           </th>
         </tr>
       </thead>

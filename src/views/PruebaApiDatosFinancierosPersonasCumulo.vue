@@ -1,8 +1,7 @@
 <template>
-  <div >
+  <div>
     <v-container>
       <v-row>
-        
         <v-col cols="12" sm="6" md="3">
           <v-text-field
             v-model="nroSolicitud"
@@ -23,25 +22,39 @@
         </v-col>
       </v-row>
     </v-container>
-  <div class=" pa-4">
-      <h3 ><u>Datos Financieros</u></h3><br>
+    <div class="pa-4">
 
-<datosFinancierosComponent/><br>
-<h3><u>Datos de los Deudores</u></h3><br>
-<tableDatosPersonaComponent/>
-  </div>
-  
+      <v-card class="mx-auto" max-width="95%">
+        <v-toolbar dense flat>
+          <v-toolbar-title>Datos Financieros</v-toolbar-title>
+        </v-toolbar>
+        <div class="pa-5">
+          <datosFinancierosComponent />
+        </div>
+      </v-card>
+
+      
+    </div>
+    <div class="pa-4">
+        <v-card class="mx-auto" max-width="95%">
+        <v-toolbar dense flat>
+          <v-toolbar-title>Datos de los Deudores</v-toolbar-title>
+        </v-toolbar>
+        <div class="pa-5">
+          <tableDatosPersonaComponent />
+        </div>
+      </v-card>
+    </div>
   </div>
 </template>
 <script>
-
-import {  mapActions, mapMutations } from "vuex";
-import datosFinancierosComponent from '@/components/TableDatosFinancierosComponent.vue'
-import tableDatosPersonaComponent from '@/components/TableDatosPersonaComponent.vue'
+import { mapActions, mapMutations } from "vuex";
+import datosFinancierosComponent from "@/components/TableDatosFinancierosComponent.vue";
+import tableDatosPersonaComponent from "@/components/TableDatosPersonaComponent.vue";
 export default {
-  components:{
+  components: {
     datosFinancierosComponent,
-    tableDatosPersonaComponent
+    tableDatosPersonaComponent,
   },
   data() {
     return {
@@ -49,47 +62,38 @@ export default {
       lstDatosFinancieros: [],
     };
   },
-    
+
   methods: {
-     ...mapActions("api_banco", [
+    ...mapActions("api_banco", [
       "obtenerDatosFinancieros",
-      "obtenerDatosPersona"
+      "obtenerDatosPersona",
     ]),
-    ...mapMutations("api_banco",[
-      "setDatosPersonas"
-    ]),
+    ...mapMutations("api_banco", ["setDatosPersonas"]),
 
     async clickObtenerDatosFinancieros() {
       let r = await this.obtenerDatosFinancieros(this.nroSolicitud);
 
-    console.log("ver pruebas")
-     console.log(r);
+      console.log("ver pruebas");
+      console.log(r);
 
-      let lstDeudores = []
-     
-    
-        for (const deudor of r[0].deudores) {
+      let lstDeudores = [];
 
-          console.log("holas")
-        console.log("deudor:  "+deudor);
-       
-           
+      for (const deudor of r[0].deudores) {
+        console.log("holas");
+        console.log("deudor:  " + deudor);
 
-          let rr =  await    this.obtenerDatosPersona({tipoDocumento:deudor.tipoIdentificacion,
-         extension:deudor.extensionIdentificacion,numeroDocumento:deudor.numerodeIdentifiacion});
+        let rr = await this.obtenerDatosPersona({
+          tipoDocumento: deudor.tipoIdentificacion,
+          extension: deudor.extensionIdentificacion,
+          numeroDocumento: deudor.numerodeIdentifiacion,
+        });
         lstDeudores.push(rr.data);
+      }
 
-        
-          
-      };
-
-
-
-      console.log("respuesta ")
+      console.log("respuesta ");
       console.log(lstDeudores);
-this.setDatosPersonas(lstDeudores);
-
-    }
+      this.setDatosPersonas(lstDeudores);
+    },
   },
 };
 </script>
