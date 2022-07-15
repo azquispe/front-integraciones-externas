@@ -20,7 +20,35 @@ const routes = [
     path: '/prueba-api-datos-persona',
     name: 'pruebaApiDatosPersona',
     component: () => import('../views/PruebaApiDatosPersona.vue')
+  },
+  {
+    path: '/prueba-api-cumulo',
+    name: 'pruebaApiCumulo',
+    component: () => import('../views/PruebaApiCumulo.vue')
+  },
+  
+  {
+    path: '/prueba-api-listanegra',
+    name: 'pruebaApiListaNegra',
+    component: () => import('../views/PruebaApiListaNegra.vue')
+  },
+  {
+    path: '/prueba-api-datos-financieros',
+    name: 'pruebaApiDatosFinancieros',
+    component: () => import('../views/PruebaApiDatosFinancieros.vue')
+
+  },
+  {
+    path: '/prueba-api-datos-cuenta',
+    name: 'pruebaApiDatosCuenta',
+    component: () => import('../views/PruebaApiDatosCuenta.vue')
+
   }
+
+
+  
+  
+
 
 
   

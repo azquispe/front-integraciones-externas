@@ -27,7 +27,7 @@
       <h3 ><u>Datos Financieros</u></h3><br>
 
 <datosFinancierosComponent/><br>
-<h3><u>Datos Persona</u></h3><br>
+<h3><u>Datos de los Deudores</u></h3><br>
 <tableDatosPersonaComponent/>
   </div>
   
@@ -62,21 +62,31 @@ export default {
     async clickObtenerDatosFinancieros() {
       let r = await this.obtenerDatosFinancieros(this.nroSolicitud);
 
-     console.log("dsdsd: "+r.data.deudores);
+    console.log("ver pruebas")
+     console.log(r);
+
       let lstDeudores = []
      
-        for (const deudor of r.data.deudores) {
-        console.log(deudor);
-        if(deudor.extensionIdentificacion.trim()!=""){
+    
+        for (const deudor of r[0].deudores) {
+
+          console.log("holas")
+        console.log("deudor:  "+deudor);
+       
            
 
           let rr =  await    this.obtenerDatosPersona({tipoDocumento:deudor.tipoIdentificacion,
          extension:deudor.extensionIdentificacion,numeroDocumento:deudor.numerodeIdentifiacion});
         lstDeudores.push(rr.data);
 
-        }
+        
           
       };
+
+
+
+      console.log("respuesta ")
+      console.log(lstDeudores);
 this.setDatosPersonas(lstDeudores);
 
     }

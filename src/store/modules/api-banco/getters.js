@@ -1,10 +1,11 @@
 export const getDatosFinancieros = (state) => {
-    let lstDatosFinancieros=[];
-    lstDatosFinancieros.push(state.objDatosFinancieros);
-    
-    return lstDatosFinancieros; 
+
+    return state.lstDatosFinancieros;
 }
 export const getDatosPersonas = (state) => {
 
     return state.lstDatosPersonas;
+}
+export const getDialogProgress=(state)=>{
+    return state.dialogProgress;
 }

@@ -1,4 +1,5 @@
 export default {
-    objDatosFinancieros:{},
-    lstDatosPersonas:[]
+    lstDatosFinancieros:[],
+    lstDatosPersonas:[],
+    dialogProgress:false
 }

@@ -1,6 +1,25 @@
 <template>
   <v-app>
-
+ <v-dialog
+      v-model="getDialogProgress"
+      hide-overlay
+      persistent
+      width="300"
+    >
+      <v-card
+        color="primary"
+        dark
+      >
+        <v-card-text>
+          Procesando espere...
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
 
      <v-navigation-drawer
         dark
@@ -29,25 +48,25 @@
               </v-list-item-action>
               <v-list-item-title>Obtiene Datos Persona</v-list-item-title>
             </v-list-item>
-            <v-list-item :to="{ name: 'negocioLugares' }">
+            <v-list-item :to="{ name: 'pruebaApiDatosCuenta' }">
               <v-list-item-action>
                 <v-icon dark small color="verde"> mdi-send  </v-icon>
               </v-list-item-action>
               <v-list-item-title> Obtiene Datos Cuentas</v-list-item-title>
             </v-list-item>
-               <v-list-item :to="{ name: 'negocioLugares' }">
+               <v-list-item :to="{ name: 'pruebaApiListaNegra' }">
               <v-list-item-action>
                 <v-icon dark small color="verde"> mdi-send  </v-icon>
               </v-list-item-action>
               <v-list-item-title> Valida Listas Negras</v-list-item-title>
             </v-list-item>
-               <v-list-item :to="{ name: 'negocioLugares' }">
+               <v-list-item :to="{ name: 'pruebaApiDatosFinancieros' }">
               <v-list-item-action>
                 <v-icon dark small color="verde"> mdi-send  </v-icon>
               </v-list-item-action>
               <v-list-item-title> Obtiene Datos Financiero</v-list-item-title>
             </v-list-item>
-               <v-list-item :to="{ name: 'negocioLugares' }">
+               <v-list-item :to="{ name: 'pruebaApiCumulo' }">
               <v-list-item-action>
                 <v-icon dark small color="verde"> mdi-send  </v-icon>
               </v-list-item-action>
@@ -102,13 +121,18 @@
 </template>
 
 <script>
-
+import {  mapGetters } from "vuex";
 export default {
   name: 'App',
 
   data: () => ({
      drawer: null,
   }),
+  computed: {
+    ...mapGetters("api_banco", ["getDialogProgress"]),
+  },
+  methods:{
+  }
 };
 </script>
 
