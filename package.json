@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
   
-      "start": "node index.js"
+      "start": "node static.json"
     
   },
   "dependencies": {
