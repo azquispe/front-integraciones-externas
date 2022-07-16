@@ -4,12 +4,12 @@ module.exports = {
   ],
   devServer:{
     //proxy:'https://msganaseguros.dev.bg.com.bo/'
-     /*proxy: {
+     proxy: {
           "^/ganaseguros": {
           target: 'https://msganaseguros.dev.bg.com.bo',
           ws: true,
           changeOrigin: true
         }
-      }*/
+      }
   }
 }
