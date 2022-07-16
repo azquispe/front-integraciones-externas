@@ -2,15 +2,15 @@ module.exports = {
   transpileDependencies: [
     'vuetify'
   ],
-  devServer:{
+  /*devServer:{
     proxy:'https://msganaseguros.dev.bg.com.bo/',
-     /*proxy: {
+     proxy: {
           "^/ganaseguros": {
           target: 'https://msganaseguros.dev.bg.com.bo',
           ws: true,
           changeOrigin: true
         }
-      },*/
+      },
       headers: { "Access-Control-Allow-Origin": "*" }
-  }
+  }*/
 }
