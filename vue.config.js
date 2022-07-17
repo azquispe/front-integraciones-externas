@@ -6,7 +6,7 @@ module.exports = {
   ],
   devServer: {
     proxy: {
-      "/ganaseguros": {
+      "^/ganaseguros": {
         target: 'https://msganaseguros.dev.bg.com.bo',
         ws: true,
         changeOrigin: true

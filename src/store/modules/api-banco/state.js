@@ -1,5 +1,5 @@
 export default {
-    lstDatosFinancieros:[],
+    lstDatosFinancieros:{},
     lstDatosPersonas:[],
     dialogProgress:false
 }
