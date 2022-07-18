@@ -10,12 +10,10 @@ const axiosInstance = axios.create({
     },
     headers: {
 
-        "Topaz-User": "TOP1",
+        /*"Topaz-User": "TOP1",
         "Topaz-Branch": "701",
         "Topaz-Company": "1",
-        "Topaz-Channel": "1",
-       // 'content-type': 'application/x-www-form-urlencoded'
-
+        "Topaz-Channel": "1",*/
 
     }
 });
