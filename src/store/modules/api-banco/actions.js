@@ -13,7 +13,13 @@ const axiosInstance = axios.create({
         /*"Topaz-User": "TOP1",
         "Topaz-Branch": "701",
         "Topaz-Company": "1",
+<<<<<<< HEAD
         "Topaz-Channel": "1",*/
+=======
+        "Topaz-Channel": "1",
+       //'content-type': 'application/x-www-form-urlencoded'
+
+>>>>>>> c630a180129c8e2b713c73c8780f44811dc6b4d1
 
     }
 });

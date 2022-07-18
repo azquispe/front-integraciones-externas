@@ -51,7 +51,7 @@
         </v-row>
       </div>
       <v-container fluid row v-if="Object.entries(objDatosPersona).length != 0">
-        <v-card outlined class="ma-2">
+        <v-card outlined class="ma-2"  max-width="300">
           <v-card-title>&nbsp;</v-card-title>
           <v-card-text>
             <div class="font-weight-normal">
@@ -124,7 +124,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card outlined class="ma-2">
+        <v-card outlined class="ma-2"  max-width="300">
           <v-card-title>INFORMACIÓN CONYUGUE</v-card-title>
           <v-card-text>
             <div class="font-weight-normal">
@@ -157,7 +157,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card outlined class="ma-2">
+        <v-card outlined class="ma-2"  max-width="300">
           <v-card-title>INFORMACIÓN DE RESIDENCIA</v-card-title>
           <v-card-text>
             <div class="font-weight-normal">
@@ -186,7 +186,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card outlined class="ma-2">
+        <v-card outlined class="ma-2"  max-width="300">
           <v-card-title>INFORMACIÓN LABORAL</v-card-title>
           <v-card-text>
             <div class="font-weight-normal">
@@ -231,7 +231,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card outlined class="ma-2">
+        <v-card outlined class="ma-2"  max-width="300">
           <v-card-title>REFERENCIAS</v-card-title>
           <v-card-text>
             <div v-for="obj in objDatosPersona.referencias" :key="obj">

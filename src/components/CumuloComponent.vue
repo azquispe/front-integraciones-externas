@@ -1,118 +1,114 @@
 <template>
   <div>
-      <v-card elevation="4"  class="ma-5">
-        <v-toolbar dense flat>
-          <v-toolbar-title>
-            <span class="plomo_868686--text">
-              <strong> OBTIENE CÚMULO DE UNA PERSONA</strong></span
-            ></v-toolbar-title
-          >
-        </v-toolbar>
-        <div class="pa-5">
-<v-row align="center">
-        <v-col cols="3">
-          <v-autocomplete
-            v-model="vTipoDocumento"
-            :items="lstTipoDocumento"
-            outlined
-            dense
-            chips
-            small-chips
-            label="Tipo de Documento"
-            hide-details
-            clearable
-          ></v-autocomplete>
-        </v-col>
-        <v-col cols="3">
-          <v-text-field
-            v-model="vNroDocumento"
-            outlined
-            dense
-            label="Nro Documento"
-            hide-details
-            clearable
-          ></v-text-field>
-        </v-col>
-        <v-col cols="3">
-          <v-autocomplete
-            v-model="vExtencion"
-            :items="lstExtencion"
-            outlined
-            dense
-            label="Extención"
-            hide-details
-            clearable
-          ></v-autocomplete>
-        </v-col>
-        <v-col cols="3">
-          <v-autocomplete
-            v-model="vTipoProducto"
-            :items="lstTipoProducto"
-            outlined
-            dense
-            chips
-            small-chips
-            label="Tipo de Producto"
-            hide-details
-            clearable
-          ></v-autocomplete>
-        </v-col>
-        <v-col cols="3">
-          <v-autocomplete
-            v-model="vTipoOperacion"
-            :items="lstTipoOperacion"
-            outlined
-            dense
-            chips
-            small-chips
-            label="Tipo de Operación"
-            hide-details
-            clearable
-          ></v-autocomplete>
-        </v-col>
+    <v-card elevation="4" class="ma-5">
+      <v-toolbar dense flat>
+        <v-toolbar-title>
+          <span class="plomo_868686--text">
+            <strong> OBTIENE CÚMULO DE UNA PERSONA</strong></span
+          ></v-toolbar-title
+        >
+      </v-toolbar>
+      <div class="pa-5">
+        <v-row align="center">
+          <v-col cols="12" sm="6" md="3">
+            <v-autocomplete
+              v-model="vTipoDocumento"
+              :items="lstTipoDocumento"
+              outlined
+              dense
+              chips
+              small-chips
+              label="Tipo de Documento"
+              hide-details
+              clearable
+            ></v-autocomplete>
+          </v-col>
+          <v-col cols="12" sm="6" md="3">
+            <v-text-field
+              v-model="vNroDocumento"
+              outlined
+              dense
+              label="Nro Documento"
+              hide-details
+              clearable
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="3">
+            <v-autocomplete
+              v-model="vExtencion"
+              :items="lstExtencion"
+              outlined
+              dense
+              label="Extención"
+              hide-details
+              clearable
+            ></v-autocomplete>
+          </v-col>
+          <v-col cols="12" sm="6" md="3">
+            <v-autocomplete
+              v-model="vTipoProducto"
+              :items="lstTipoProducto"
+              outlined
+              dense
+              chips
+              small-chips
+              label="Tipo de Producto"
+              hide-details
+              clearable
+            ></v-autocomplete>
+          </v-col>
+          <v-col cols="12" sm="6" md="3">
+            <v-autocomplete
+              v-model="vTipoOperacion"
+              :items="lstTipoOperacion"
+              outlined
+              dense
+              chips
+              small-chips
+              label="Tipo de Operación"
+              hide-details
+              clearable
+            ></v-autocomplete>
+          </v-col>
 
-        <v-col cols="3">
-          <v-text-field
-            v-model="vJts"
-            outlined
-            dense
-            label="JTS"
-            hide-details
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" sm="6" md="3">
-          <v-chip
-            class="ma-2"
-            color="primary"
-            text-color="white"
-            @click="clickObtenerDatosCumulo()"
-          >
-            Verificar 
-          </v-chip>
-        </v-col>
-      </v-row>
-      <v-row v-if="vCumulo != ''">
-        <v-col cols="12">
-          <h3>Cúmulo</h3>
-          <v-alert dense text type="success">
-            {{ vCumulo }}
-          </v-alert>
-        </v-col>
-      </v-row>
-      <v-row v-if="smsError != ''">
-        <v-col cols="12">
-          <h3>Mensaje de Error</h3>
-          <v-alert dense text type="error">
-            {{ smsError }}
-          </v-alert>
-        </v-col>
-      </v-row>
-          
-  </div>
-      </v-card>
-
-
-
+          <v-col cols="12" sm="6" md="3">
+            <v-text-field
+              v-model="vJts"
+              outlined
+              dense
+              label="JTS"
+              hide-details
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="3">
+            <v-chip
+              class="ma-2"
+              color="primary"
+              text-color="white"
+              @click="clickObtenerDatosCumulo()"
+            >
+              Verificar
+            </v-chip>
+          </v-col>
+        </v-row>
+        <v-row v-if="vCumulo != ''">
+          <v-col cols="12" >
+            <h3>Cúmulo</h3>
+            <v-alert dense text type="success">
+              {{ vCumulo }}
+            </v-alert>
+          </v-col>
+        </v-row>
+        <v-row v-if="smsError != ''">
+          <v-col cols="12">
+            <h3>Mensaje de Error</h3>
+            <v-alert dense text type="error">
+              {{ smsError }}
+            </v-alert>
+          </v-col>
+        </v-row>
+      </div>
+    </v-card>
   </div>
 </template>
 <script>

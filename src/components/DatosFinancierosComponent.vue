@@ -47,7 +47,7 @@
           row
           v-if="Object.entries(objDatosFinancieros).length != 0"
         >
-          <v-card outlined class="ma-2">
+          <v-card outlined class="ma-2"  max-width="300">
             <v-card-title>&nbsp;</v-card-title>
             <v-card-text>
               <div class="font-weight-normal">
@@ -75,7 +75,7 @@
               </div>
             </v-card-text>
           </v-card>
-          <v-card outlined class="ma-2">
+          <v-card outlined class="ma-2"  max-width="300">
             <v-card-title>Línea de Crédito</v-card-title>
             <v-card-text>
               <div class="font-weight-normal">
@@ -96,7 +96,7 @@
               </div>
             </v-card-text>
           </v-card>
-          <v-card outlined class="ma-2">
+          <v-card outlined class="ma-2"  max-width="300">
             <v-card-title>Deudores</v-card-title>
             <v-card-text>
               <div v-for="obj in objDatosFinancieros.deudores" :key="obj">
