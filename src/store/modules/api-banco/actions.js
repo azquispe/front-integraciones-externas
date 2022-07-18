@@ -14,7 +14,7 @@ const axiosInstance = axios.create({
         "Topaz-Branch": "701",
         "Topaz-Company": "1",
         "Topaz-Channel": "1",
-       // 'content-type': 'application/x-www-form-urlencoded'
+       //'content-type': 'application/x-www-form-urlencoded'
 
 
     }
@@ -22,9 +22,9 @@ const axiosInstance = axios.create({
 
 
 //let url = "http://172.16.1.155:8000/ganaseguros";
-//let url = "  http://localhost:8080/ganaseguros";
+let url = "  http://localhost:8080/ganaseguros";
 //let url = "https://integraciones-ganaseguros.herokuapp.com/ganaseguros";
-let url = "https://msganaseguros.dev.bg.com.bo/ganaseguros";
+//let url = "https://msganaseguros.dev.bg.com.bo/ganaseguros";
 
 
 export const obtenerDatosFinancieros = ({ commit }, pNroSolicitud) => {
