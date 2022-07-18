@@ -9,19 +9,22 @@ const axiosInstance = axios.create({
         password: "SYSTEMS1",
     },
     headers: {
-        "Access-Control-Allow-Origin": "*",
+
         "Topaz-User": "TOP1",
         "Topaz-Branch": "701",
         "Topaz-Company": "1",
         "Topaz-Channel": "1",
+       // 'content-type': 'application/x-www-form-urlencoded'
+
+
     }
 });
 
 
 //let url = "http://172.16.1.155:8000/ganaseguros";
-let url = "  http://localhost:8080/ganaseguros";
+//let url = "  http://localhost:8080/ganaseguros";
 //let url = "https://integraciones-ganaseguros.herokuapp.com/ganaseguros";
-//let url = "https://msganaseguros.dev.bg.com.bo/ganaseguros";
+let url = "https://msganaseguros.dev.bg.com.bo/ganaseguros";
 
 
 export const obtenerDatosFinancieros = ({ commit }, pNroSolicitud) => {
@@ -33,9 +36,7 @@ export const obtenerDatosFinancieros = ({ commit }, pNroSolicitud) => {
 
                 }
             }).then(r => {
-
-                commit('setDatosFinancieros', r.data);
-                resolve(r.data);
+                resolve(r);
             }).catch((err) => {
                 resolve(err.response);
             })
@@ -112,6 +113,8 @@ export const obtieneDatosCuenta = ({ commit }, objParam) => {
             }
         }).then(r => {
             resolve(r);
+        }).catch((err) => {
+            resolve(err.response);
         })
 
     })

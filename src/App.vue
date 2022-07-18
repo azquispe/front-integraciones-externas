@@ -77,7 +77,7 @@
       </v-btn>-->
     </v-app-bar>
 
-    <v-main >
+    <v-main  style="background-color: #ECEFF1" >
       <router-view />
     </v-main>
   </v-app>

@@ -1,9 +1,15 @@
 <template>
   <div>
-    <v-container fluid>
-      <h3>OBTIENE CÚMULO DE UNA PERSONA</h3>
-      <br />
-      <v-row align="center">
+      <v-card elevation="4"  class="ma-5">
+        <v-toolbar dense flat>
+          <v-toolbar-title>
+            <span class="plomo_868686--text">
+              <strong> OBTIENE CÚMULO DE UNA PERSONA</strong></span
+            ></v-toolbar-title
+          >
+        </v-toolbar>
+        <div class="pa-5">
+<v-row align="center">
         <v-col cols="3">
           <v-autocomplete
             v-model="vTipoDocumento"
@@ -96,13 +102,17 @@
       <v-row v-if="smsError != ''">
         <v-col cols="12">
           <h3>Mensaje de Error</h3>
-
           <v-alert dense text type="error">
             {{ smsError }}
           </v-alert>
         </v-col>
       </v-row>
-    </v-container>
+          
+  </div>
+      </v-card>
+
+
+
   </div>
 </template>
 <script>
