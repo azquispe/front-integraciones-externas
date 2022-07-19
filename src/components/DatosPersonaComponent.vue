@@ -10,22 +10,42 @@
       </v-toolbar>
       <div class="pa-5">
         <v-row>
-          <v-col cols="12" sm="6" md="3">
-            <v-autocomplete
+          <v-row cols="12" sm="6" md="3">
+            <!--<v-autocomplete
               v-model="vTipoDoc"
               :items="lstTipoDocumento"
               outlined
               dense
               label="Tipo de Documento"
               hide-details
-            ></v-autocomplete>
-          </v-col>
+              clearable
+            ></v-autocomplete>-->
+
+            <v-switch
+              class="pl-8"
+              dense
+              v-model="vTipoDoc"
+              color="primary"
+              label="CI"
+              value="CI"
+            ></v-switch>
+
+            <v-switch
+              class="pl-8"
+              dense
+              v-model="vTipoDoc"
+              color="primary"
+              label="NIT"
+              value="NIT"
+            ></v-switch>
+          </v-row>
           <v-col cols="12" sm="6" md="3">
             <v-text-field
               v-model="vNroDoc"
               outlined
               dense
               label="Número Documento"
+              clearable
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="3" v-if="this.vTipoDoc === 'CI'">
@@ -34,8 +54,9 @@
               :items="lstExtencion"
               outlined
               dense
-              label="Tipo de Documento"
+              label="Extensión"
               hide-details
+              clearable
             ></v-autocomplete>
           </v-col>
           <v-col cols="12" sm="6" md="3">
@@ -49,9 +70,17 @@
             </v-chip>
           </v-col>
         </v-row>
+        <v-row v-if="smsError != ''">
+          <v-col cols="12">
+            <h3>Mensaje de Error</h3>
+            <v-alert dense text type="error">
+              {{ smsError }}
+            </v-alert>
+          </v-col>
+        </v-row>
       </div>
       <v-container fluid row v-if="Object.entries(objDatosPersona).length != 0">
-        <v-card outlined class="ma-2"  max-width="300">
+        <v-card outlined class="ma-2" max-width="300">
           <v-card-title>&nbsp;</v-card-title>
           <v-card-text>
             <div class="font-weight-normal">
@@ -124,7 +153,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card outlined class="ma-2"  max-width="300">
+        <v-card outlined class="ma-2" max-width="300">
           <v-card-title>INFORMACIÓN CONYUGUE</v-card-title>
           <v-card-text>
             <div class="font-weight-normal">
@@ -157,7 +186,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card outlined class="ma-2"  max-width="300">
+        <v-card outlined class="ma-2" max-width="300">
           <v-card-title>INFORMACIÓN DE RESIDENCIA</v-card-title>
           <v-card-text>
             <div class="font-weight-normal">
@@ -186,7 +215,7 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card outlined class="ma-2"  max-width="300">
+        <v-card outlined class="ma-2" max-width="300">
           <v-card-title>INFORMACIÓN LABORAL</v-card-title>
           <v-card-text>
             <div class="font-weight-normal">
@@ -231,48 +260,48 @@
             </div>
           </v-card-text>
         </v-card>
-        <v-card outlined class="ma-2"  max-width="300">
+        <v-card outlined class="ma-2" max-width="300">
           <v-card-title>REFERENCIAS</v-card-title>
           <v-card-text>
             <div v-for="obj in objDatosPersona.referencias" :key="obj">
-            <div class="font-weight-normal">
-              <strong>Tipo: </strong>
-              {{ obj.tipo }}
+              <div class="font-weight-normal">
+                <strong>Tipo: </strong>
+                {{ obj.tipo }}
+              </div>
+              <div class="font-weight-normal">
+                <strong>Nombre: </strong>
+                {{ obj.nombre }}
+              </div>
+              <div class="font-weight-normal">
+                <strong>Apellido Paterno: </strong>
+                {{ obj.apellidoPaterno }}
+              </div>
+              <div class="font-weight-normal">
+                <strong>Apellido Materno: </strong>
+                {{ obj.apellidoMaterno }}
+              </div>
+              <div class="font-weight-normal">
+                <strong>Apellido Casado: </strong>
+                {{ obj.apellidoDeCasada }}
+              </div>
+              <div class="font-weight-normal">
+                <strong>Relación: </strong>
+                {{ obj.relacion }}
+              </div>
+              <div class="font-weight-normal">
+                <strong>Teléfono: </strong>
+                {{ obj.telefono }}
+              </div>
+              <div class="font-weight-normal">
+                <strong>Correo Electrónico: </strong>
+                {{ obj.correoElectronico }}
+              </div>
+              <div class="font-weight-normal">
+                <strong>Entidad: </strong>
+                {{ obj.entidad }}
+              </div>
+              <v-divider></v-divider>
             </div>
-            <div class="font-weight-normal">
-              <strong>Nombre: </strong>
-              {{ obj.nombre }}
-            </div>
-            <div class="font-weight-normal">
-              <strong>Apellido Paterno: </strong>
-              {{ obj.apellidoPaterno }}
-            </div>
-            <div class="font-weight-normal">
-              <strong>Apellido Materno: </strong>
-              {{ obj.apellidoMaterno }}
-            </div>
-            <div class="font-weight-normal">
-              <strong>Apellido Casado: </strong>
-              {{ obj.apellidoDeCasada }}
-            </div>
-            <div class="font-weight-normal">
-              <strong>Relación: </strong>
-              {{ obj.relacion }}
-            </div>
-            <div class="font-weight-normal">
-              <strong>Teléfono: </strong>
-              {{ obj.telefono }}
-            </div>
-            <div class="font-weight-normal">
-              <strong>Correo Electrónico: </strong>
-              {{ obj.correoElectronico }}
-            </div>
-            <div class="font-weight-normal">
-              <strong>Entidad: </strong>
-              {{ obj.entidad }}
-            </div>
-            <v-divider></v-divider>
-          </div>
           </v-card-text>
         </v-card>
       </v-container>
@@ -285,10 +314,11 @@ import { mapActions, mapMutations } from "vuex";
 export default {
   data() {
     return {
+      smsError: "",
       vExtencion: "",
       vNroDoc: "",
       vTipoDoc: "CI",
-      lstTipoDocumento: ["CI", "NIT"],
+      //lstTipoDocumento: ["CI", "NIT"],
       lstExtencion: [
         "SC",
         "LP",
@@ -335,6 +365,7 @@ export default {
     ...mapActions("api_banco", ["obtenerDatosPersona"]),
 
     async clickObtenerDatosPersona() {
+      this.smsError = "";
       this.setDialogProgress(true);
       this.objDatosPersona = {};
 
@@ -344,6 +375,22 @@ export default {
         numeroDocumento: this.vNroDoc.trim(),
       };
       let r = await this.obtenerDatosPersona(obj);
+      if (r.data && r.data.statusCode) {
+        this.$notify({
+          title: "RESPUESTA DEL SERVICIO",
+          text:
+            "<b>statusCode</b>: " +
+            r.data.statusCode +
+            "<br> <b>Message:</b> " +
+            r.data.message,
+          duration: 5000,
+          type: "error",
+        });
+        this.smsError = r.data.message;
+        this.setDialogProgress(false);
+        return;
+      }
+
       this.objDatosPersona = r.data;
       this.$notify({
         title: "Mensaje",

@@ -10,7 +10,7 @@
     </v-toolbar>
     <div class="pa-5">
       <v-row align="center">
-        <v-col cols="3">
+        <v-col cols="12" sm="6" md="3">
           <v-text-field
             v-model="vNombreCompleto"
             outlined
@@ -57,7 +57,7 @@ import { mapActions, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      vNombreCompleto: "EVARISTO",
+      vNombreCompleto: "",
       vRespuesta: "",
       vResultadoEjecucion: 0,
     };

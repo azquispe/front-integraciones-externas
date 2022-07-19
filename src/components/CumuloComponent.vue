@@ -10,8 +10,8 @@
       </v-toolbar>
       <div class="pa-5">
         <v-row align="center">
-          <v-col cols="12" sm="6" md="3">
-            <v-autocomplete
+          <v-row cols="12" sm="6" md="3">
+            <!--<v-autocomplete
               v-model="vTipoDocumento"
               :items="lstTipoDocumento"
               outlined
@@ -21,8 +21,27 @@
               label="Tipo de Documento"
               hide-details
               clearable
-            ></v-autocomplete>
-          </v-col>
+            ></v-autocomplete>-->
+
+                   <v-switch
+              class="pl-8"
+              dense
+              v-model="vTipoDocumento"
+              color="primary"
+              label="CI"
+              value="CI"
+            ></v-switch>
+
+            <v-switch
+              class="pl-8"
+              dense
+              v-model="vTipoDocumento"
+              color="primary"
+              label="NIT"
+              value="NIT"
+            ></v-switch>
+
+          </v-row>
           <v-col cols="12" sm="6" md="3">
             <v-text-field
               v-model="vNroDocumento"
@@ -39,7 +58,7 @@
               :items="lstExtencion"
               outlined
               dense
-              label="Extención"
+              label="Extensión"
               hide-details
               clearable
             ></v-autocomplete>
@@ -48,6 +67,8 @@
             <v-autocomplete
               v-model="vTipoProducto"
               :items="lstTipoProducto"
+              item-value="value"
+              item-text="text"
               outlined
               dense
               chips
@@ -61,6 +82,8 @@
             <v-autocomplete
               v-model="vTipoOperacion"
               :items="lstTipoOperacion"
+              item-value="value"
+              item-text="text"
               outlined
               dense
               chips
@@ -92,7 +115,7 @@
           </v-col>
         </v-row>
         <v-row v-if="vCumulo != ''">
-          <v-col cols="12" >
+          <v-col cols="12">
             <h3>Cúmulo</h3>
             <v-alert dense text type="success">
               {{ vCumulo }}
@@ -118,11 +141,11 @@ export default {
   data() {
     return {
       vTipoDocumento: "CI",
-      vTipoProducto: "R",
-      vTipoOperacion: "O",
+      vTipoProducto: "",
+      vTipoOperacion: "",
       vJts: 0,
-      vNroDocumento: "7678534",
-      vExtencion: "SC",
+      vNroDocumento: "",
+      vExtencion: "",
       lstExtencion: [
         "SC",
         "LP",
@@ -136,9 +159,28 @@ export default {
         "PE",
       ],
 
-      lstTipoDocumento: ["CI", "NIT"],
-      lstTipoProducto: ["R", "N"],
-      lstTipoOperacion: ["O", "P", "OR", "T", "A"],
+      //lstTipoDocumento: ["CI", "NIT"],
+      lstTipoProducto: [
+        {
+          value: "R",
+          text: "Regulada",
+        },
+        {
+          value: "N",
+          text: "No Regulada",
+        },
+      ],
+      lstTipoOperacion: [
+        {
+          value: "O",
+          text: "Préstamo Nuevo",
+        },{
+          value: "P",
+          text: "Préstamo Reprogramado",
+        },{
+          value: "OR",
+          text: "Préstamo Refinanciado",
+        }],
       vCumulo: "",
       smsError: "",
     };

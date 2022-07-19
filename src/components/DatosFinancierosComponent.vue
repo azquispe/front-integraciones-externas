@@ -10,7 +10,7 @@
       </v-toolbar>
       <div class="pa-5">
         <v-row align="center">
-          <v-col cols="3">
+          <v-col cols="12" sm="6" md="3">
             <v-text-field
               v-model="vNroSolicitud"
               outlined
@@ -21,7 +21,7 @@
               clearable
             ></v-text-field>
           </v-col>
-          <v-col cols="3">
+          <v-col cols="12" sm="6" md="3">
             <v-chip
               class="ma-2"
               color="primary"
@@ -136,7 +136,7 @@ import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      vNroSolicitud: 26655,
+      vNroSolicitud: "",
       objDatosFinancieros:{},
       smsError: ""
     };
