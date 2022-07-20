@@ -13,42 +13,42 @@ const routes = [
     component: () => import('../views/Inicio.vue')
   },
   {
-    path: '/prueba-api-financiero-personas-cumulo',
-    name: 'pruebaApiFinancieroPersonasCumulo',
-    component: () => import('../views/PruebaApiDatosFinancierosPersonasCumulo.vue')
+    path: '/prueba-apis-multiple',
+    name: 'pruebaApisMultiple',
+    component: () => import('../views/vistas-banco/PruebaApisMultiple.vue')
   },
   {
     path: '/prueba-api-datos-persona',
     name: 'pruebaApiDatosPersona',
-    component: () => import('../views/PruebaApiDatosPersona.vue')
+    component: () => import('../views/vistas-banco/PruebaApiDatosPersona.vue')
   },
   {
     path: '/prueba-api-cumulo',
     name: 'pruebaApiCumulo',
-    component: () => import('../views/PruebaApiCumulo.vue')
+    component: () => import('../views/vistas-banco/PruebaApiCumulo.vue')
   },
   
   {
     path: '/prueba-api-listanegra',
     name: 'pruebaApiListaNegra',
-    component: () => import('../views/PruebaApiListaNegra.vue')
+    component: () => import('../views/vistas-banco/PruebaApiListaNegra.vue')
   },
   {
     path: '/prueba-api-datos-financieros',
     name: 'pruebaApiDatosFinancieros',
-    component: () => import('../views/PruebaApiDatosFinancieros.vue')
+    component: () => import('../views/vistas-banco/PruebaApiDatosFinancieros.vue')
 
   },
   {
     path: '/prueba-api-datos-cuenta',
     name: 'pruebaApiDatosCuenta',
-    component: () => import('../views/PruebaApiDatosCuenta.vue')
+    component: () => import('../views/vistas-banco/PruebaApiDatosCuenta.vue')
 
   },
   {
     path: '/prueba-api-datos-linea',
     name: 'pruebaApiDatosLinea',
-    component: () => import('../views/PruebaApiDatosLinea.vue')
+    component: () => import('../views/vistas-banco/PruebaApiDatosLinea.vue')
 
   }
 

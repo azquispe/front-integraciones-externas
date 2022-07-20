@@ -1,12 +1,12 @@
 <template>
-<cumuloComponent/>
+<datosLineaComponent/>
 </template>
 <script>
 
-import cumuloComponent from '@/components/CumuloComponent.vue'
+import datosLineaComponent from '@/components/componentes-banco/DatosLineaComponent.vue'
 export default {
   components:{
-    cumuloComponent
+    datosLineaComponent
   },
   data() {
     return {

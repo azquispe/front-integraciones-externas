@@ -18,7 +18,7 @@
             </v-list-item-action>
             <v-list-item-title>Inicio</v-list-item-title>
           </v-list-item>
-          <v-list-item :to="{ name: 'pruebaApiFinancieroPersonasCumulo' }">
+          <v-list-item :to="{ name: 'pruebaApisMultiple' }">
             <v-list-item-action>
               <v-icon dark small >mdi-send </v-icon>
             </v-list-item-action>

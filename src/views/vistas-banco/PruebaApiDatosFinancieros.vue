@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import datosFinancierosComponent from "@/components/DatosFinancierosComponent.vue";
+import datosFinancierosComponent from "@/components/componentes-banco/DatosFinancierosComponent.vue";
 export default {
   components: {
     datosFinancierosComponent,

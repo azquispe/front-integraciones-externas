@@ -6,7 +6,7 @@
 <script>
 
 import {  mapActions, mapMutations } from "vuex";
-import datosPersonaComponent from '@/components/DatosPersonaComponent.vue'
+import datosPersonaComponent from '@/components/componentes-banco/DatosPersonaComponent.vue'
 export default {
   components:{
     datosPersonaComponent

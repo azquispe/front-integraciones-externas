@@ -4,7 +4,7 @@
 <script>
 
 import {  mapActions, mapMutations } from "vuex";
-import validaListasNegrasComponent from '@/components/ValidaListasNegrasComponent.vue'
+import validaListasNegrasComponent from '@/components/componentes-banco/ValidaListasNegrasComponent.vue'
 export default {
   components:{
     validaListasNegrasComponent

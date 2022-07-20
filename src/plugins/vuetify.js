@@ -16,7 +16,7 @@ export default new Vuetify({
             rosa_FFB695:'FFB695',
             verde_00521A:'00521A',
             verde_01827D:'#01827D',
-            verde_53A808:'53A808',
+            verde_53A808:'#53A808',
             plomo_333333:'#333333',
             plomo_868686:'#868686',
             plomo_D3D3D3 :'D3D3D3',
