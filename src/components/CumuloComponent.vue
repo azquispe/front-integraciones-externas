@@ -23,7 +23,7 @@
               clearable
             ></v-autocomplete>-->
 
-                   <v-switch
+            <v-switch
               class="pl-8"
               dense
               v-model="vTipoDocumento"
@@ -40,7 +40,6 @@
               label="NIT"
               value="NIT"
             ></v-switch>
-
           </v-row>
           <v-col cols="12" sm="6" md="3">
             <v-text-field
@@ -71,8 +70,7 @@
               item-text="text"
               outlined
               dense
-              chips
-              small-chips
+      
               label="Tipo de Producto"
               hide-details
               clearable
@@ -86,8 +84,7 @@
               item-text="text"
               outlined
               dense
-              chips
-              small-chips
+         
               label="Tipo de Operación"
               hide-details
               clearable
@@ -174,13 +171,16 @@ export default {
         {
           value: "O",
           text: "Préstamo Nuevo",
-        },{
+        },
+        {
           value: "P",
           text: "Préstamo Reprogramado",
-        },{
+        },
+        {
           value: "OR",
           text: "Préstamo Refinanciado",
-        }],
+        },
+      ],
       vCumulo: "",
       smsError: "",
     };

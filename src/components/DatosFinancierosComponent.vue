@@ -48,7 +48,7 @@
           v-if="Object.entries(objDatosFinancieros).length != 0"
         >
           <v-card outlined class="ma-2"  max-width="300">
-            <v-card-title>&nbsp;</v-card-title>
+            <v-card-title>DATOS GENERALES</v-card-title>
             <v-card-text>
               <div class="font-weight-normal">
                 <strong>Tipo de Producto: </strong>

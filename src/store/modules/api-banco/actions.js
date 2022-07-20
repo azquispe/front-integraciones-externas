@@ -117,3 +117,18 @@ export const obtieneDatosCuenta = ({ commit }, objParam) => {
 
     })
 }
+
+export const obtenerDatosLinea = ({ commit }, pNroSolicitud) => {
+    return new Promise((resolve, reject) => {
+        axiosInstance.get(url + "/v1/datos-linea/obtener",
+            {
+                params: {
+                    numerosolicitud: pNroSolicitud
+                }
+            }).then(r => {
+                resolve(r);
+            }).catch((err) => {
+                resolve(err.response);
+            })
+    })
+}

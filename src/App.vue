@@ -54,6 +54,13 @@
             </v-list-item-action>
             <v-list-item-title> Obtiene Cúmulo de Persona</v-list-item-title>
           </v-list-item>
+          <v-list-item :to="{ name: 'pruebaApiDatosLinea' }">
+            <v-list-item-action>
+              <v-icon dark small > mdi-send </v-icon>
+            </v-list-item-action>
+            <v-list-item-title> Obtiene Datos Línea</v-list-item-title>
+          </v-list-item>
+          
 
         </template>
       </v-list>

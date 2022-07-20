@@ -44,9 +44,16 @@ const routes = [
     name: 'pruebaApiDatosCuenta',
     component: () => import('../views/PruebaApiDatosCuenta.vue')
 
+  },
+  {
+    path: '/prueba-api-datos-linea',
+    name: 'pruebaApiDatosLinea',
+    component: () => import('../views/PruebaApiDatosLinea.vue')
+
   }
 
 
+  
   
   
 
