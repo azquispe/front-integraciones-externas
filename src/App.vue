@@ -1,10 +1,13 @@
 <template>
   <v-app>
-    <v-dialog v-model="getDialogProgress" hide-overlay persistent width="300">
+    <v-dialog v-model="getDialogProgress.mostrar" 
+     persistent width="300">
       <v-card color="primary" dark>
         <v-card-text>
-          Procesando espere...
-          <v-progress-linear indeterminate color="white" class="mb-0"></v-progress-linear>
+          {{getDialogProgress.sms}}
+          <v-progress-linear indeterminate 
+          color="white" class="mb-0">
+          </v-progress-linear>
         </v-card-text>
       </v-card>
     </v-dialog>

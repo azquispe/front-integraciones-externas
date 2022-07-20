@@ -3,8 +3,8 @@
     <v-card elevation="4" class="ma-5">
       <v-toolbar dense flat>
         <v-toolbar-title>
-          <span class="plomo_868686--text">
-            <strong> OBTIENE CÚMULO DE UNA PERSONA</strong></span
+          <span class="verde_53A808--text">
+            OBTIENE CÚMULO DE UNA PERSONA</span
           ></v-toolbar-title
         >
       </v-toolbar>
@@ -201,7 +201,7 @@ export default {
         jts: this.vJts,
         tipooperacion: this.vTipoOperacion,
       };
-      this.setDialogProgress(true);
+      this.setDialogProgress({mostrar:true,sms:'Verificando Cúmulo, espere...'});
       let r = await this.obtenerCumulo(param);
 
       // existe mensaje, mostrra error
@@ -217,7 +217,7 @@ export default {
           type: "error",
         });
         this.smsError = r.data.message;
-        this.setDialogProgress(false);
+        this.setDialogProgress({mostrar:false,sms:''});
         return;
       }
 
@@ -237,7 +237,7 @@ export default {
           type: "success",
         });
       }
-      this.setDialogProgress(false);
+      this.setDialogProgress({mostrar:false,sms:''});
     },
   },
 };

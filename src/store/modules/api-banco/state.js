@@ -1,5 +1,8 @@
 export default {
     lstDatosFinancieros:{},
     lstDatosPersonas:[],
-    dialogProgress:false
+    dialogProgress:{
+        sms:'Procesando espere...',
+        mostrar:false
+    }
 }

@@ -3,8 +3,8 @@
   <v-card elevation="4" class="ma-5">
     <v-toolbar dense flat>
       <v-toolbar-title>
-        <span class="plomo_868686--text">
-          <strong> VALIDA LISTAS NEGRAS DE UNA PERSONA</strong></span
+        <span class="verde_53A808--text">
+          VALIDA LISTAS NEGRAS DE UNA PERSONA</span
         ></v-toolbar-title
       >
     </v-toolbar>
@@ -68,6 +68,9 @@ export default {
     ...mapMutations("api_banco", ["setDialogProgress"]),
 
     async clickVerificarListaNegra() {
+      try {
+        
+      
       this.vRespuesta = "";
 
       if (this.vNombreCompleto.trim() === "") {
@@ -80,10 +83,11 @@ export default {
         return;
       }
 
-      this.setDialogProgress(true);
+      this.setDialogProgress({mostrar:true,sms:'Verificando Listas Negras, espere...'});
       let r = await this.verificarListaNegra(this.vNombreCompleto);
       this.vRespuesta = r.data.mensajeEjecucion;
       this.vResultadoEjecucion = r.data.resultadoEjecucion;
+
       if (r.data.resultadoEjecucion > 0 || r.data.resultadoEjecucion < 0) {
         this.$notify({
           title: "Mensaje",
@@ -99,7 +103,16 @@ export default {
           type: "success",
         });
       }
-      this.setDialogProgress(false);
+
+      this.setDialogProgress({mostrar:false,sms:''});
+      } catch (error) {
+        this.$notify({
+          title: "Mensaje",
+          text: error,
+          duration: 2000,
+          type: "error",
+        });
+      }
     },
   },
 };

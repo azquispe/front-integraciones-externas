@@ -3,8 +3,8 @@
     <v-card elevation="4" class="ma-5">
       <v-toolbar dense flat>
         <v-toolbar-title>
-          <span class="plomo_868686--text">
-            <strong> OBTIENE DATOS PERSONA</strong></span
+         <span class="verde_53A808--text">
+             OBTIENE DATOS PERSONA</span
           ></v-toolbar-title
         >
       </v-toolbar>
@@ -81,224 +81,226 @@
       </div>
       <v-container fluid row v-if="Object.entries(objDatosPersona).length != 0">
         <v-card outlined class="ma-2" max-width="300">
-          <v-card-title>DATOS GENERALES</v-card-title>
+         <v-card-title class=" rosa_FFB695--text">DATOS GENERALES</v-card-title>
           <v-card-text>
-            <div class="font-weight-normal">
-              <strong>Nombre: </strong>
-              {{ objDatosPersona.nombre }}
+
+
+            <div >
+              <span class="font-weight-regular">Nombre: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.nombre }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Apellido Paterno: </strong>
-              {{ objDatosPersona.apellidoPaterno }}
+            <div >
+              <span class="font-weight-regular">Apellido Paterno: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.apellidoPaterno }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Apellido Materno: </strong>
-              {{ objDatosPersona.apellidoMaterno }}
+            <div >
+              <span class="font-weight-regular">Apellido Materno: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.apellidoMaterno }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Apellido de Casado: </strong>
-              {{ objDatosPersona.apellidoDeCasada }}
+            <div >
+              <span class="font-weight-regular">Apellido de Casado: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.apellidoDeCasada }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Sexo: </strong>
-              {{ objDatosPersona.sexo }}
+            <div >
+              <span class="font-weight-regular">Sexo: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.sexo }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Fecha de Nacimiento: </strong>
-              {{ objDatosPersona.fechaDeNacimiento }}
+            <div >
+              <span class="font-weight-regular">Fecha de Nacimiento: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.fechaDeNacimiento }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Correo Electrónico: </strong>
-              {{ objDatosPersona.correoElectronico }}
+            <div >
+              <span class="font-weight-regular">Correo Electrónico: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.correoElectronico }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Estado Civil: </strong>
-              {{ objDatosPersona.estadoCivil }}
+            <div >
+              <span class="font-weight-regular">Estado Civil: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.estadoCivil }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Nacionalidad: </strong>
-              {{ objDatosPersona.nacionalidad }}
+            <div >
+              <span class="font-weight-regular">Nacionalidad: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.nacionalidad }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Redes Sociales: </strong>
-              {{ objDatosPersona.redesSociales }}
+            <div >
+              <span class="font-weight-regular">Redes Sociales: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.redesSociales }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Cantidad Hijos: </strong>
-              {{ objDatosPersona.cantidadHijos }}
+            <div >
+              <span class="font-weight-regular">Cantidad Hijos: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.cantidadHijos }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Ingreso Pesos: </strong>
-              {{ objDatosPersona.ingresoPesos }}
+            <div >
+              <span class="font-weight-regular">Ingreso Pesos: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.ingresoPesos }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Nivel Ingreso: </strong>
-              {{ objDatosPersona.nivelIngresos }}
+            <div >
+              <span class="font-weight-regular">Nivel Ingreso: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.nivelIngresos }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Nivel Educación: </strong>
-              {{ objDatosPersona.nivelEducacion }}
+            <div >
+              <span class="font-weight-regular">Nivel Educación: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.nivelEducacion }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Discapacitado: </strong>
-              {{ objDatosPersona.discapacitado }}
+            <div >
+              <span class="font-weight-regular">Discapacitado: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.discapacitado }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Tipo de Vivienda: </strong>
-              {{ objDatosPersona.tipoDeVivienda }}
+            <div >
+              <span class="font-weight-regular">Tipo de Vivienda: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.tipoDeVivienda }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Porcentaje Crédito Asumido: </strong>
-              {{ objDatosPersona.porcentajeCreditoAsumido }}
+            <div >
+              <span class="font-weight-regular">Porcentaje Crédito Asumido: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.porcentajeCreditoAsumido }} </span>
             </div>
           </v-card-text>
         </v-card>
         <v-card outlined class="ma-2" max-width="300">
-          <v-card-title>INFORMACIÓN CONYUGUE</v-card-title>
+          <v-card-title class=" rosa_FFB695--text">INFORMACIÓN CONYUGUE</v-card-title>
           <v-card-text>
-            <div class="font-weight-normal">
-              <strong>Nombre: </strong>
-              {{ objDatosPersona.informacionDelConyuge.nombre }}
+            <div >
+              <span class="font-weight-regular">Nombre: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.informacionDelConyuge.nombre }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Apellido Paterno: </strong>
-              {{ objDatosPersona.informacionDelConyuge.apellidoPaterno }}
+            <div >
+              <span class="font-weight-regular">Apellido Paterno: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.informacionDelConyuge.apellidoPaterno }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Apellido Materno: </strong>
-              {{ objDatosPersona.informacionDelConyuge.apellidoMaterno }}
+            <div >
+              <span class="font-weight-regular">Apellido Materno: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.informacionDelConyuge.apellidoMaterno }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Apellido de Casado: </strong>
-              {{ objDatosPersona.informacionDelConyuge.apellidoDeCasada }}
+            <div >
+              <span class="font-weight-regular">Apellido de Casado: </span>
+            <span class="font-weight-thin">  {{ objDatosPersona.informacionDelConyuge.apellidoDeCasada }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Sexo: </strong>
-              {{ objDatosPersona.informacionDelConyuge.sexo }}
+            <div >
+              <span class="font-weight-regular">Sexo: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionDelConyuge.sexo }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Fecha de Nacimiento: </strong>
-              {{ objDatosPersona.informacionDelConyuge.fechaDeNacimiento }}
+            <div >
+              <span class="font-weight-regular">Fecha de Nacimiento: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionDelConyuge.fechaDeNacimiento }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Correo Electrónico: </strong>
-              {{ objDatosPersona.informacionDelConyuge.correoElectronico }}
+            <div >
+              <span class="font-weight-regular">Correo Electrónico: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.informacionDelConyuge.correoElectronico }} </span>
             </div>
           </v-card-text>
         </v-card>
         <v-card outlined class="ma-2" max-width="300">
-          <v-card-title>INFORMACIÓN DE RESIDENCIA</v-card-title>
+          <v-card-title class=" rosa_FFB695--text">INFORMACIÓN DE RESIDENCIA</v-card-title>
           <v-card-text>
-            <div class="font-weight-normal">
-              <strong>Pais de Residencia: </strong>
-              {{ objDatosPersona.informacionDeResidencia.paisDeResidencia }}
+            <div >
+              <span class="font-weight-regular">Pais de Residencia: </span>
+            <span class="font-weight-thin">  {{ objDatosPersona.informacionDeResidencia.paisDeResidencia }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Dirección: </strong>
-              {{ objDatosPersona.informacionDeResidencia.direccion }}
+            <div >
+              <span class="font-weight-regular">Dirección: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionDeResidencia.direccion }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Departamento: </strong>
-              {{ objDatosPersona.informacionDeResidencia.departamento }}
+            <div >
+              <span class="font-weight-regular">Departamento: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionDeResidencia.departamento }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Ciudad: </strong>
-              {{ objDatosPersona.informacionDeResidencia.ciudad }}
+            <div >
+              <span class="font-weight-regular">Ciudad: </span>
+            <span class="font-weight-thin">  {{ objDatosPersona.informacionDeResidencia.ciudad }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Teléfono: </strong>
-              {{ objDatosPersona.informacionDeResidencia.telefono }}
+            <div >
+              <span class="font-weight-regular">Teléfono: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.informacionDeResidencia.telefono }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Celular: </strong>
-              {{ objDatosPersona.informacionDeResidencia.celular }}
+            <div >
+              <span class="font-weight-regular">Celular: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.informacionDeResidencia.celular }} </span>
             </div>
           </v-card-text>
         </v-card>
         <v-card outlined class="ma-2" max-width="300">
-          <v-card-title>INFORMACIÓN LABORAL</v-card-title>
+          <v-card-title class=" rosa_FFB695--text">INFORMACIÓN LABORAL</v-card-title>
           <v-card-text>
-            <div class="font-weight-normal">
-              <strong>Lugar de Trabajo: </strong>
-              {{ objDatosPersona.informacionLaboral.lugarDeTrabajo }}
+            <div >
+              <span class="font-weight-regular">Lugar de Trabajo: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.informacionLaboral.lugarDeTrabajo }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Cargo: </strong>
-              {{ objDatosPersona.informacionLaboral.cargo }}
+            <div >
+              <span class="font-weight-regular">Cargo: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionLaboral.cargo }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Profesión: </strong>
-              {{ objDatosPersona.informacionLaboral.profesion }}
+            <div >
+              <span class="font-weight-regular">Profesión: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionLaboral.profesion }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Actividad Económica: </strong>
-              {{ objDatosPersona.informacionLaboral.actividadEconomica }}
+            <div >
+              <span class="font-weight-regular">Actividad Económica: </span>
+              <span class="font-weight-thin">{{ objDatosPersona.informacionLaboral.actividadEconomica }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Fecha de ingreso a Trabajo: </strong>
-              {{ objDatosPersona.informacionLaboral.fechaDeIngresoAlTrabajo }}
+            <div >
+              <span class="font-weight-regular">Fecha de ingreso a Trabajo: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionLaboral.fechaDeIngresoAlTrabajo }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Domicilio Comercial: </strong>
-              {{ objDatosPersona.informacionLaboral.domicilioComercial }}
+            <div >
+              <span class="font-weight-regular">Domicilio Comercial: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionLaboral.domicilioComercial }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Departamento: </strong>
-              {{ objDatosPersona.informacionLaboral.departamento }}
+            <div >
+              <span class="font-weight-regular">Departamento: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionLaboral.departamento }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Ciudad: </strong>
-              {{ objDatosPersona.informacionLaboral.ciudad }}
+            <div >
+              <span class="font-weight-regular">Ciudad: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionLaboral.ciudad }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Telefóno: </strong>
-              {{ objDatosPersona.informacionLaboral.telefono }}
+            <div >
+              <span class="font-weight-regular">Telefóno: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionLaboral.telefono }} </span>
             </div>
-            <div class="font-weight-normal">
-              <strong>Correo Electrónico: </strong>
-              {{ objDatosPersona.informacionLaboral.correoElectronico }}
+            <div >
+              <span class="font-weight-regular">Correo Electrónico: </span>
+             <span class="font-weight-thin"> {{ objDatosPersona.informacionLaboral.correoElectronico }} </span>
             </div>
           </v-card-text>
         </v-card>
         <v-card outlined class="ma-2" max-width="300">
-          <v-card-title>REFERENCIAS</v-card-title>
+          <v-card-title class=" rosa_FFB695--text">REFERENCIAS</v-card-title>
           <v-card-text>
             <div v-for="obj in objDatosPersona.referencias" :key="obj">
-              <div class="font-weight-normal">
-                <strong>Tipo: </strong>
-                {{ obj.tipo }}
+              <div >
+                <span class="font-weight-regular">Tipo: </span>
+                <span class="font-weight-thin">{{ obj.tipo }} </span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Nombre: </strong>
-                {{ obj.nombre }}
+              <div >
+                <span class="font-weight-regular">Nombre: </span>
+                <span class="font-weight-thin">{{ obj.nombre }} </span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Apellido Paterno: </strong>
-                {{ obj.apellidoPaterno }}
+              <div >
+                <span class="font-weight-regular">Apellido Paterno: </span>
+                <span class="font-weight-thin">{{ obj.apellidoPaterno }} </span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Apellido Materno: </strong>
-                {{ obj.apellidoMaterno }}
+              <div >
+                <span class="font-weight-regular">Apellido Materno: </span>
+                <span class="font-weight-thin">{{ obj.apellidoMaterno }} </span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Apellido Casado: </strong>
-                {{ obj.apellidoDeCasada }}
+              <div >
+                <span class="font-weight-regular">Apellido Casado: </span>
+                <span class="font-weight-thin">{{ obj.apellidoDeCasada }} </span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Relación: </strong>
-                {{ obj.relacion }}
+              <div >
+                <span class="font-weight-regular">Relación: </span>
+               <span class="font-weight-thin">{{ obj.relacion }} </span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Teléfono: </strong>
-                {{ obj.telefono }}
+              <div >
+                <span class="font-weight-regular">Teléfono: </span>
+                <span class="font-weight-thin">{{ obj.telefono }} </span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Correo Electrónico: </strong>
-                {{ obj.correoElectronico }}
+              <div >
+                <span class="font-weight-regular">Correo Electrónico: </span>
+               <span class="font-weight-thin"> {{ obj.correoElectronico }} </span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Entidad: </strong>
-                {{ obj.entidad }}
+              <div >
+                <span class="font-weight-regular">Entidad: </span>
+                <span class="font-weight-thin">{{ obj.entidad }} </span>
               </div>
               <v-divider></v-divider>
             </div>
@@ -366,7 +368,7 @@ export default {
 
     async clickObtenerDatosPersona() {
       this.smsError = "";
-      this.setDialogProgress(true);
+      this.setDialogProgress({mostrar:true,sms:'Verificando Datos Personas, espere...'});
       this.objDatosPersona = {};
 
       let obj = {
@@ -387,7 +389,7 @@ export default {
           type: "error",
         });
         this.smsError = r.data.message;
-        this.setDialogProgress(false);
+        this.setDialogProgress({mostrar:false,sms:''});
         return;
       }
 
@@ -398,7 +400,7 @@ export default {
         duration: 2000,
         type: "success",
       });
-      this.setDialogProgress(false);
+      this.setDialogProgress({mostrar:false,sms:''});
     },
   },
 };

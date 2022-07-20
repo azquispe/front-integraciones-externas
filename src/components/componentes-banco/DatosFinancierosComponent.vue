@@ -4,7 +4,7 @@
       <v-toolbar dense flat>
         <v-toolbar-title>
           <span class="plomo_868686--text">
-            <strong> OBTIENE DATOS FINANCIEROS DE UNA PERSONA</strong></span
+            <span class="font-weight-regular"> OBTIENE DATOS FINANCIEROS DE UNA PERSONA</span></span
           ></v-toolbar-title
         >
       </v-toolbar>
@@ -48,78 +48,78 @@
           v-if="Object.entries(objDatosFinancieros).length != 0"
         >
           <v-card outlined class="ma-2"  max-width="300">
-            <v-card-title>DATOS GENERALES</v-card-title>
+            <v-card-title class=" rosa_FFB695--text">DATOS GENERALES</v-card-title>
             <v-card-text>
-              <div class="font-weight-normal">
-                <strong>Tipo de Producto: </strong>
-                {{ objDatosFinancieros.tipoDeProducto }}
+              <div >
+                <span class="font-weight-regular">Tipo de Producto: </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.tipoDeProducto }}</span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Moneda Solicitado: </strong>
-                {{ objDatosFinancieros.monedaSolicitado }}
+              <div >
+                <span class="font-weight-regular">Moneda Solicitado: </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.monedaSolicitado }}</span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Monto Solicitado: </strong>
-                {{ objDatosFinancieros.montoSolicitado }}
+              <div >
+                <span class="font-weight-regular">Monto Solicitado: </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.montoSolicitado }}</span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Plazo de Crédito: </strong>
-                {{ objDatosFinancieros.plazoCredito }}
+              <div >
+                <span class="font-weight-regular">Plazo de Crédito: </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.plazoCredito }}</span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Departamento: </strong>
-                {{ objDatosFinancieros.departamento }}
+              <div >
+                <span class="font-weight-regular">Departamento: </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.departamento }}</span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Ciudad: </strong> {{ objDatosFinancieros.ciudad }}
+              <div >
+                <span class="font-weight-regular">Ciudad: </span> <span class="font-weight-thin">{{ objDatosFinancieros.ciudad }}</span>
               </div>
             </v-card-text>
           </v-card>
           <v-card outlined class="ma-2"  max-width="300">
-            <v-card-title>Línea de Crédito</v-card-title>
+            <v-card-title class=" rosa_FFB695--text">LÍNEA DE CRÉDITO</v-card-title>
             <v-card-text>
-              <div class="font-weight-normal">
-                <strong>Número: </strong>
-                {{ objDatosFinancieros.lineaDeCredito.numero }}
+              <div >
+                <span class="font-weight-regular">Número: </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.lineaDeCredito.numero }}</span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Moneda Aprobada: </strong>
-                {{ objDatosFinancieros.lineaDeCredito.monedaAprobada }}
+              <div >
+                <span class="font-weight-regular">Moneda Aprobada: </span>
+               <span class="font-weight-thin"> {{ objDatosFinancieros.lineaDeCredito.monedaAprobada }}</span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Monto Aprobado: </strong>
-                {{ objDatosFinancieros.lineaDeCredito.montoAprobado }}
+              <div >
+                <span class="font-weight-regular">Monto Aprobado: </span>
+               <span class="font-weight-thin"> {{ objDatosFinancieros.lineaDeCredito.montoAprobado }}</span>
               </div>
-              <div class="font-weight-normal">
-                <strong>Fecha de vigencia : </strong>
-                {{ objDatosFinancieros.lineaDeCredito.fechaDeVigencia }}
+              <div >
+                <span class="font-weight-regular">Fecha de vigencia : </span>
+               <span class="font-weight-thin"> {{ objDatosFinancieros.lineaDeCredito.fechaDeVigencia }}</span>
               </div>
             </v-card-text>
           </v-card>
           <v-card outlined class="ma-2"  max-width="300">
-            <v-card-title>Deudores</v-card-title>
+            <v-card-title class=" rosa_FFB695--text">DEUDORES</v-card-title>
             <v-card-text>
               <div v-for="obj in objDatosFinancieros.deudores" :key="obj">
-                <div class="font-weight-normal">
-                  <strong>Tipo de Identificación : </strong>
-                  {{ obj.tipoIdentificacion }}
+                <div >
+                  <span class="font-weight-regular">Tipo de Identificación : </span>
+                 <span class="font-weight-thin"> {{ obj.tipoIdentificacion }}</span>
                 </div>
-                <div class="font-weight-normal">
-                  <strong>Número de Identificación : </strong>
-                  {{ obj.numerodeIdentifiacion }}
+                <div >
+                  <span class="font-weight-regular">Número de Identificación : </span>
+                 <span class="font-weight-thin"> {{ obj.numerodeIdentifiacion }}</span>
                 </div>
-                <div class="font-weight-normal">
-                  <strong>Complemento Identificación : </strong>
-                  {{ obj.complementoIdentificacion }}
+                <div >
+                  <span class="font-weight-regular">Complemento Identificación : </span>
+                 <span class="font-weight-thin"> {{ obj.complementoIdentificacion }}</span>
                 </div>
-                <div class="font-weight-normal">
-                  <strong>Extensión Identificación : </strong>
-                  {{ obj.extensionIdentificacion }}
+                <div >
+                  <span class="font-weight-regular">Extensión Identificación : </span>
+                 <span class="font-weight-thin"> {{ obj.extensionIdentificacion }}</span>
                 </div>
-                <div class="font-weight-normal">
-                  <strong>Tipo de Deudor : </strong>
+                <div >
+                  <span class="font-weight-regular">Tipo de Deudor : </span>
                   <v-chip class="ma-2" color="primary" outlined pill small>
-                    {{ obj.tipoDeDeudor }}
+                   <span class="font-weight-thin"> {{ obj.tipoDeDeudor }}</span>
                   </v-chip>
                 </div>
                 <v-divider></v-divider>
@@ -151,7 +151,7 @@ export default {
       this.smsError = "";
       this.objDatosFinancieros={};
 
-      this.setDialogProgress(true);
+      this.setDialogProgress({mostrar:true,sms:'Verificando Datos Financieros, espere...'});
 
       let r = await this.obtenerDatosFinancieros(this.vNroSolicitud);
       if (r.data && r.data.statusCode) {
@@ -166,13 +166,13 @@ export default {
           type: "error",
         });
         this.smsError = r.data.message;
-        this.setDialogProgress(false);
+        this.setDialogProgress({mostrar:false,sms:''});
         return;
       }
 
       
       this.objDatosFinancieros = r.data
-      this.setDialogProgress(false);
+      this.setDialogProgress({mostrar:false,sms:''});
     },
   },
 };

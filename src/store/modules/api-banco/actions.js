@@ -88,6 +88,8 @@ export const verificarListaNegra = ({ commit }, vNombreCompleto) => {
     return new Promise((resolve, reject) => {
         axiosInstance.get(url + "/v1/uif/validalistanegra?nombreCompleto=" + vNombreCompleto).then(r => {
             resolve(r);
+        }).catch((err) => {
+            resolve(err.response);
         })
     })
 }

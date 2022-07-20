@@ -2,26 +2,26 @@
   <v-card elevation="4" class="ma-5">
     <v-toolbar dense flat>
       <v-toolbar-title>
-        <span class="plomo_868686--text">
-          <strong> Datos Financieros </strong></span
+        <span class="verde_53A808--text">
+          Datos Financieros </span
         ></v-toolbar-title
       >
     </v-toolbar>
     <div class="pa-5">
       <v-row>
-        <v-row cols="12" sm="6" md="3" >
+        <v-row cols="12" sm="6" md="3">
           <v-switch
-          class="pl-8"
-          dense
+            class="pl-8"
+            dense
             v-model="vTipoDoc"
             color="primary"
             label="CI"
             value="CI"
           ></v-switch>
-          
+
           <v-switch
-          class="pl-8"
-          dense
+            class="pl-8"
+            dense
             v-model="vTipoDoc"
             color="primary"
             label="NIT"
@@ -67,44 +67,39 @@
           </v-col>
         </v-row>
       </v-row>
-      <v-data-table
+      <v-card
+        outlined
+        class="ma-2"
+        max-width="279"
         v-if="lstDatosCuenta.length > 0"
-        dense
-        :items="lstDatosCuenta"
-        :headers="header_datos_cuenta"
-        :hide-default-header="true"
-        hide-default-footer
-        class="elevation-1"
       >
-        <template v-slot:header="{ props: { headers } }">
-          <thead>
-            <tr class="verde_53A808">
-              <th class="subtitle-4" v-for="obj in headers" :key="obj">
-                <spam class="white--text">{{ obj.text.toUpperCase() }}</spam>
-              </th>
-            </tr>
-          </thead>
-        </template>
-        <template v-slot:item="{ item }">
-          <tr>
-            <td class="pa-2 pl-4 font-weight-light caption">
-              {{ item.id }}
-            </td>
-            <td class="pa-2 pl-4 font-weight-light caption">
-              {{ item.cuenta }}
-            </td>
-            <td class="pa-2 pl-4 font-weight-light caption">
-              {{ item.moneda }}
-            </td>
-            <td class="pa-2 pl-4 font-weight-light caption">
-              {{ item.tipoProducto }}
-            </td>
-            <td class="pa-2 pl-4 font-weight-light caption">
-              {{ item.estado }}
-            </td>
-          </tr>
-        </template>
-      </v-data-table>
+        <v-card-title class="rosa_FFB695--text">DATOS CUENTA</v-card-title>
+        <v-card-text>
+          <div v-for="obj in lstDatosCuenta" :key="obj">
+            <div>
+              <span class="font-weight-regular">ID: </span>
+              <span class="font-weight-thin"> {{ obj.id }}</span>
+            </div>
+            <div>
+              <span class="font-weight-regular">Cuenta: </span>
+              <span class="font-weight-thin"> {{ obj.cuenta }}</span>
+            </div>
+            <div>
+              <span class="font-weight-regular">Moneda: </span>
+              <span class="font-weight-thin"> {{ obj.moneda }}</span>
+            </div>
+            <div>
+              <span class="font-weight-regular">Tipo de Producto: </span>
+              <span class="font-weight-thin"> {{ obj.tipoProducto }}</span>
+            </div>
+            <div>
+              <span class="font-weight-regular">Estado: </span>
+              <span class="font-weight-thin"> {{ obj.estado }}</span>
+            </div>
+            <v-divider></v-divider>
+          </div>
+        </v-card-text>
+      </v-card>
     </div>
   </v-card>
 </template>
@@ -117,7 +112,7 @@ export default {
       vExtencion: "",
       vNroDoc: "",
       vTipoDoc: "CI",
-      //lstTipoDocumento: ["CI", "NIT"],
+
       lstExtencion: [
         "SC",
         "LP",
@@ -131,13 +126,7 @@ export default {
         "PE",
       ],
       lstDatosCuenta: [],
-      header_datos_cuenta: [
-        { text: "ID", value: "id" },
-        { text: "Cuenta", value: "cuenta" },
-        { text: "Moneda ", value: "moneda" },
-        { text: "Tipo de Producto ", value: "tipoProducto" },
-        { text: "Estado ", value: "estado" },
-      ],
+
       smsError: "",
     };
   },
@@ -146,7 +135,10 @@ export default {
     ...mapMutations("api_banco", ["setDialogProgress"]),
 
     async clickObtenerDatosCuenta() {
-      this.setDialogProgress(true);
+      this.setDialogProgress({
+        mostrar: true,
+        sms: "Verificando Datos Cuentas, espere...",
+      });
       this.lstDatosCuenta = [];
       this.smsError = "";
 
@@ -168,7 +160,7 @@ export default {
           type: "error",
         });
         this.smsError = r.data.message;
-        this.setDialogProgress(false);
+        this.setDialogProgress({ mostrar: false, sms: "" });
         return;
       }
 
@@ -179,7 +171,7 @@ export default {
         duration: 2000,
         type: "success",
       });
-      this.setDialogProgress(false);
+      this.setDialogProgress({ mostrar: false, sms: "" });
     },
   },
 };
