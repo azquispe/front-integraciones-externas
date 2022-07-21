@@ -7,11 +7,11 @@ Vue.use(VueRouter)
 
 const routes = [
   
-  {
+  /*{
     path: '/',
     name: 'inicio',
     component: () => import('../views/Inicio.vue')
-  },
+  },*/
   {
     path: '/prueba-apis-multiple',
     name: 'pruebaApisMultiple',
@@ -51,8 +51,17 @@ const routes = [
     component: () => import('../views/vistas-banco/PruebaApiDatosLinea.vue')
 
   }
+  ,
+  {
+    path: '/prueba-api-consulta-segip',
+    name: 'pruebaApiConsultaSegip',
+    component: () => import('../views/vistas-banco/PruebaApiConsultaSegip.vue')
+
+  }
 
 
+
+  
   
   
   

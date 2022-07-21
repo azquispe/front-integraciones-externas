@@ -37,9 +37,9 @@
       <datosFinancierosMultipleComponent
         :objDatosFinancieros="objDatosFinancieros"
       ></datosFinancierosMultipleComponent>
-      <datosPersonaMultipleComponent
+      <consultaMultipleCabComponent
         :lstDeudores="objDatosFinancieros.deudores"
-      ></datosPersonaMultipleComponent>
+      ></consultaMultipleCabComponent>
     </div>
     <div v-if="smsError!=''">
         <v-alert dense text type="error">
@@ -51,11 +51,11 @@
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import datosFinancierosMultipleComponent from "@/components/componentes-banco/DatosFinancierosMultipleComponent.vue";
-import datosPersonaMultipleComponent from "@/components/componentes-banco/DatosPersonaMultipleComponent.vue";
+import consultaMultipleCabComponent from "@/components/componentes-banco/ConsultaMultipleCabComponent.vue";
 export default {
   components: {
     datosFinancierosMultipleComponent,
-    datosPersonaMultipleComponent,
+    consultaMultipleCabComponent,
     
 
   },

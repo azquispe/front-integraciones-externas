@@ -1,8 +1,8 @@
 <template>
   <v-container fluid row>
-    <v-card outlined class="ma-2" max-width="270">
-      <v-card-title class=" rosa_FFB695--text">DATOS GENERALES</v-card-title>
-      <v-card-text>
+    <v-card outlined class="ma-2 pa-2" max-width="270">
+       <span class="title rosa_FFB695--text">DATOS GENERALES</span><br>
+      
         <div >
            <span class="font-weight-regular">{{ objDatosTodosPersona.tipoDoc + ": " }} </span>
 
@@ -77,11 +77,11 @@
            <span class="font-weight-regular">Porcentaje Crédito Asumido: </span>
          <span class="font-weight-thin"> {{ objDatosTodosPersona.porcentajeCreditoAsumido }}</span>
         </div>
-      </v-card-text>
+      
     </v-card>
-    <v-card outlined class="ma-2" max-width="270">
-      <v-card-title class=" rosa_FFB695--text">INFORMACIÓN CONYUGUE</v-card-title>
-      <v-card-text>
+    <v-card outlined class="ma-2 pa-2" max-width="270">
+       <span class="title rosa_FFB695--text">INFORMACIÓN CONYUGUE</span><br>
+      
         <div >
           <span class="font-weight-regular">Nombre: </span>
           <span class="font-weight-thin">{{ objDatosTodosPersona.informacionDelConyuge.nombre }}</span>
@@ -110,11 +110,11 @@
           <span class="font-weight-regular">Correo Electrónico: </span>
          <span class="font-weight-thin"> {{ objDatosTodosPersona.informacionDelConyuge.correoElectronico }}</span>
         </div>
-      </v-card-text>
+      
     </v-card>
-    <v-card outlined class="ma-2" max-width="270">
-      <v-card-title class=" rosa_FFB695--text">INFORMACIÓN DE RESIDENCIA</v-card-title>
-      <v-card-text>
+    <v-card outlined class="ma-2 pa-2" max-width="270">
+       <span class="title rosa_FFB695--text">INFORMACIÓN DE RESIDENCIA</span><br>
+      
         <div >
            <span class="font-weight-regular">Pais de Residencia: </span>
            <span class="font-weight-thin">{{ objDatosTodosPersona.informacionDeResidencia.paisDeResidencia }}</span>
@@ -139,11 +139,11 @@
            <span class="font-weight-regular">Celular: </span>
            <span class="font-weight-thin">{{ objDatosTodosPersona.informacionDeResidencia.celular }}</span>
         </div>
-      </v-card-text>
+      
     </v-card>
-    <v-card outlined class="ma-2" max-width="270">
-      <v-card-title class=" rosa_FFB695--text">INFORMACIÓN LABORAL</v-card-title>
-      <v-card-text>
+    <v-card outlined class="ma-2 pa-2" max-width="270">
+       <span class="title rosa_FFB695--text">INFORMACIÓN LABORAL</span><br>
+      
         <div >
            <span class="font-weight-regular">Lugar de Trabajo: </span>
          <span class="font-weight-thin"> {{ objDatosTodosPersona.informacionLaboral.lugarDeTrabajo }}</span>
@@ -184,55 +184,12 @@
            <span class="font-weight-regular">Correo Electrónico: </span>
           <span class="font-weight-thin">{{ objDatosTodosPersona.informacionLaboral.correoElectronico }}</span>
         </div>
-      </v-card-text>
+      
     </v-card>
-    <v-card outlined class="ma-2" max-width="279">
-      <v-card-title class=" rosa_FFB695--text">REFERENCIAS</v-card-title>
-      <v-card-text>
-        <div v-for="obj in objDatosTodosPersona.referencias" :key="obj">
-          <div >
-             <span class="font-weight-regular">Tipo: </span>
-            <span class="font-weight-thin"> {{ obj.tipo }}</span>
-          </div>
-          <div >
-             <span class="font-weight-regular">Nombre: </span>
-            <span class="font-weight-thin">{{ obj.nombre }}</span>
-          </div>
-          <div >
-             <span class="font-weight-regular">Apellido Paterno: </span>
-           <span class="font-weight-thin"> {{ obj.apellidoPaterno }}</span>
-          </div>
-          <div >
-             <span class="font-weight-regular">Apellido Materno: </span>
-            <span class="font-weight-thin">{{ obj.apellidoMaterno }}</span>
-          </div>
-          <div >
-             <span class="font-weight-regular">Apellido Casado: </span>
-            <span class="font-weight-thin">{{ obj.apellidoDeCasada }}</span>
-          </div>
-          <div >
-             <span class="font-weight-regular">Relación: </span>
-            <span class="font-weight-thin">{{ obj.relacion }}</span>
-          </div>
-          <div >
-             <span class="font-weight-regular">Teléfono: </span>
-            <span class="font-weight-thin">{{ obj.telefono }}</span>
-          </div>
-          <div >
-             <span class="font-weight-regular">Correo Electrónico: </span>
-           <span class="font-weight-thin"> {{ obj.correoElectronico }}</span>
-          </div>
-          <div >
-             <span class="font-weight-regular">Entidad: </span>
-           <span class="font-weight-thin"> {{ obj.entidad }}</span>
-          </div>
-          <v-divider></v-divider>
-        </div>
-      </v-card-text>
-    </v-card>
-    <v-card outlined class="ma-2" max-width="279">
-      <v-card-title class=" rosa_FFB695--text">DATOS CUENTA</v-card-title>
-      <v-card-text>
+
+    <v-card outlined class="ma-2 pa-2" max-width="279">
+       <span class="title rosa_FFB695--text">DATOS CUENTA</span><br>
+      
         <div v-for="obj in objDatosTodosPersona.lstDatosCuenta" :key="obj">
           <div >
              <span class="font-weight-regular">ID: </span>
@@ -256,11 +213,11 @@
           </div>
           <v-divider></v-divider>
         </div>
-      </v-card-text>
+      
     </v-card>
-    <v-card outlined class="ma-2" max-width="279">
-      <v-card-title class=" rosa_FFB695--text">LISTA NEGRA</v-card-title>
-      <v-card-text>
+    <v-card outlined class="ma-2 pa-2" max-width="279">
+       <span class="title rosa_FFB695--text">LISTA NEGRA</span><br>
+      
         <div >
            <span class="font-weight-regular">Nombre Verificado: </span>
             <span class="font-weight-thin">  {{ objDatosTodosPersona.objListaNegra.nombreCompleto }}</span>
@@ -268,17 +225,17 @@
         <v-alert dense text type="success">
              <span class="font-weight-thin"> {{ objDatosTodosPersona.objListaNegra.mensajeEjecucion }}</span>
         </v-alert>
-      </v-card-text>
+      
     </v-card>
-    <v-card outlined class="ma-2" max-width="279">
-      <v-card-title class=" rosa_FFB695--text">CÚMULO</v-card-title>
-      <v-card-text>
-        <div >
+    <v-card outlined class="ma-2 pa-2" max-width="279">
+       <span class="title rosa_FFB695--text">CÚMULO</span><br>
+      
+        <div class="pa-3" >
           <v-row cols="12" sm="6" md="3">
             <v-switch
               class="pl-8"
               dense
-              v-model="vTipoDoc"
+              v-model="objDatosTodosPersona.tipoDoc"
               color="primary"
               label="CI"
               value="CI"
@@ -287,7 +244,7 @@
             <v-switch
               class="pl-8"
               dense
-              v-model="vTipoDoc"
+              v-model="objDatosTodosPersona.tipoDoc"
               color="primary"
               label="NIT"
               value="NIT"
@@ -295,7 +252,7 @@
           </v-row>
           <v-row cols="12" sm="6" md="3">
             <v-text-field
-              v-model="vNroDoc"
+              v-model="objDatosTodosPersona.nroDoc"
               outlined
               dense
               label="Nro Documento"
@@ -351,7 +308,7 @@
           </v-row>
           <v-row cols="12" sm="6" md="3" class="pt-3">
             <v-chip
-              class="ma-2"
+              class="ma-2 pa-2"
               color="primary"
               text-color="white"
               @click="clickObtenerDatosCumulo()"
@@ -376,7 +333,50 @@
           </v-col>
         </v-row>
         </div>
-      </v-card-text>
+      
+    </v-card>
+        <v-card outlined class="ma-2 pa-2" max-width="279">
+       <span class="title rosa_FFB695--text">REFERENCIAS</span><br>
+      
+        <div v-for="obj in objDatosTodosPersona.referencias" :key="obj">
+          <div >
+             <span class="font-weight-regular">Tipo: </span>
+            <span class="font-weight-thin"> {{ obj.tipo }}</span>
+          </div>
+          <div >
+             <span class="font-weight-regular">Nombre: </span>
+            <span class="font-weight-thin">{{ obj.nombre }}</span>
+          </div>
+          <div >
+             <span class="font-weight-regular">Apellido Paterno: </span>
+           <span class="font-weight-thin"> {{ obj.apellidoPaterno }}</span>
+          </div>
+          <div >
+             <span class="font-weight-regular">Apellido Materno: </span>
+            <span class="font-weight-thin">{{ obj.apellidoMaterno }}</span>
+          </div>
+          <div >
+             <span class="font-weight-regular">Apellido Casado: </span>
+            <span class="font-weight-thin">{{ obj.apellidoDeCasada }}</span>
+          </div>
+          <div >
+             <span class="font-weight-regular">Relación: </span>
+            <span class="font-weight-thin">{{ obj.relacion }}</span>
+          </div>
+          <div >
+             <span class="font-weight-regular">Teléfono: </span>
+            <span class="font-weight-thin">{{ obj.telefono }}</span>
+          </div>
+          <div >
+             <span class="font-weight-regular">Correo Electrónico: </span>
+           <span class="font-weight-thin"> {{ obj.correoElectronico }}</span>
+          </div>
+          <div >
+             <span class="font-weight-regular">Entidad: </span>
+           <span class="font-weight-thin"> {{ obj.entidad }}</span>
+          </div>
+          <v-divider></v-divider>
+        </div>
     </v-card>
   </v-container>
 </template>
@@ -388,8 +388,8 @@ export default {
   data() {
     return {
       vExtencion: "",
-      vNroDoc: "",
-      vTipoDoc: "CI",
+      //vNroDoc: "",
+      //vTipoDoc: "CI",
        vTipoProducto: "",
       vTipoOperacion: "",
       vJts: 0,
@@ -429,6 +429,15 @@ export default {
         {
           value: "OR",
           text: "Préstamo Refinanciado",
+        }
+        ,
+           {
+          value: "T",
+          text: "Tarjetas (T)",
+        },
+           {
+          value: "A",
+          text: "Líneas (A)",
         },
       ],
       vCumulo: "",
@@ -442,9 +451,9 @@ export default {
       this.smsErrorCumulo = "";
       this.vCumulo = "";
       let param = {
-        tipoDocumento: this.vTipoDoc,
+        tipoDocumento: this.objDatosTodosPersona.tipoDoc,
         extension: this.vExtencion,
-        numeroDocumento: this.vNroDoc,
+        numeroDocumento: this.objDatosTodosPersona.nroDoc,
         tipoproducto: this.vTipoProducto,
         jts: this.vJts,
         tipooperacion: this.vTipoOperacion,
@@ -454,18 +463,9 @@ export default {
 
       // existe mensaje, mostrra error
       if (r.data && r.data.statusCode) {
-        this.$notify({
-          title: "RESPUESTA DEL SERVICIO",
-          text:
-            "<b>statusCode</b>: " +
-            r.data.statusCode +
-            "<br> <b>Message:</b> " +
-            r.data.message,
-          duration: 5000,
-          type: "error",
-        });
         this.smsErrorCumulo = r.data.message;
         this.setDialogProgress({mostrar:false,sms:''});
+        return;
       }
 
       this.vCumulo = r.data.cumulo;

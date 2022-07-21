@@ -69,13 +69,13 @@
       </v-row>
       <v-card
         outlined
-        class="ma-2"
+        class="ma-2 pa-2"
         max-width="279"
         v-if="lstDatosCuenta.length > 0"
       >
-        <v-card-title class="rosa_FFB695--text">DATOS CUENTA</v-card-title>
-        <v-card-text>
-          <div v-for="obj in lstDatosCuenta" :key="obj">
+        <span class="title rosa_FFB695--text">DATOS CUENTA</span>
+        
+          <div v-for="obj in lstDatosCuenta" :key="obj" class="pa-0">
             <div>
               <span class="font-weight-regular">ID: </span>
               <span class="font-weight-thin"> {{ obj.id }}</span>
@@ -98,7 +98,7 @@
             </div>
             <v-divider></v-divider>
           </div>
-        </v-card-text>
+        
       </v-card>
     </div>
   </v-card>

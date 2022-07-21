@@ -18,10 +18,12 @@
         :key="objDatosTodosPersona"
       >
         <v-divider></v-divider>
-        <div style="border-top: 3px solid #868686"></div>
-        <datosPersonaMultipleDetalleComponent
+        <div style="border-top: 5px solid #53A808"></div>
+
+
+        <consultaMultipleDetComponent
           :objDatosTodosPersona="objDatosTodosPersona"
-        ></datosPersonaMultipleDetalleComponent>
+        ></consultaMultipleDetComponent>
       </div>
     </v-card>
   </div>
@@ -29,12 +31,12 @@
 
 <script>
 import { mapActions, mapMutations } from "vuex";
-import datosPersonaMultipleDetalleComponent from "@/components/componentes-banco/DatosPersonaMultipleDetalleComponent.vue";
+import consultaMultipleDetComponent from "@/components/componentes-banco/ConsultaMultipleDetComponent.vue";
 
 export default {
   props: ["lstDeudores"],
   components: {
-    datosPersonaMultipleDetalleComponent,
+    consultaMultipleDetComponent,
   },
   data() {
     return {

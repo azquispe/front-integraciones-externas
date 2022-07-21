@@ -16,11 +16,9 @@
           row
           v-if="Object.entries(objDatosFinancieros).length != 0"
         >
-          <v-card outlined class="ma-2" max-width="300">
-            <v-card-title class=" rosa_FFB695--text"
-              >DATOS GENERALES</v-card-title
-            >
-            <v-card-text>
+          <v-card outlined class="ma-2 pa-2" max-width="300">
+            <span class="title rosa_FFB695--text">DATOS GENERALES</span><br>
+            
               <div>
                 <span class="font-weight-regular"> Tipo de Producto:</span>
                 <span class="font-weight-thin">
@@ -48,13 +46,11 @@
               <div >
                  <span class="font-weight-regular">Ciudad: </span> <span class="font-weight-thin"> {{ objDatosFinancieros.ciudad }}</span>
               </div>
-            </v-card-text>
+            
           </v-card>
-          <v-card outlined class="ma-2" max-width="300">
-            <v-card-title class=" rosa_FFB695--text"
-              >LÍNEA DE CRÉDITO</v-card-title
-            >
-            <v-card-text>
+          <v-card outlined class="ma-2 pa-2" max-width="300">
+            <span class="title rosa_FFB695--text">LÍNEA DE CRÉDITO</span><br>
+            
               <div >
                  <span class="font-weight-regular"> Número: </span>
                 <span class="font-weight-thin">{{ objDatosFinancieros.lineaDeCredito.numero }}</span>
@@ -71,13 +67,13 @@
                  <span class="font-weight-regular">Fecha de vigencia : </span>
                 <span class="font-weight-thin">{{ objDatosFinancieros.lineaDeCredito.fechaDeVigencia }}</span>
               </div>
-            </v-card-text>
+            
           </v-card>
-          <v-card outlined class="ma-2" max-width="300">
-            <v-card-title class=" rosa_FFB695--text">DEUDORES</v-card-title>
+          <v-card outlined class="ma-2 pa-2" max-width="300">
+             <span class="title rosa_FFB695--text">DEUDORES</span><br>
 
 
-            <v-card-text>
+            
               <div v-for="obj in objDatosFinancieros.deudores" :key="obj">
                 <div >
                   <span class="font-weight-regular">Tipo de Identificación : </span>
@@ -103,7 +99,7 @@
                 </div>
                 <v-divider></v-divider>
               </div>
-            </v-card-text>
+            
           </v-card>
         </v-container>
       </div>

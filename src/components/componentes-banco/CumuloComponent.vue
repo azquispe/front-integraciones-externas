@@ -160,25 +160,33 @@ export default {
       lstTipoProducto: [
         {
           value: "R",
-          text: "Regulada",
+          text: "Regulada (R)",
         },
         {
           value: "N",
-          text: "No Regulada",
+          text: "No Regulada (N)",
         },
       ],
       lstTipoOperacion: [
         {
           value: "O",
-          text: "Préstamo Nuevo",
+          text: "Préstamo Nuevo (O)",
         },
         {
           value: "P",
-          text: "Préstamo Reprogramado",
+          text: "Préstamo Reprogramado (P)",
         },
         {
           value: "OR",
-          text: "Préstamo Refinanciado",
+          text: "Préstamo Refinanciado (OR)",
+        },
+           {
+          value: "T",
+          text: "Tarjetas (T)",
+        },
+           {
+          value: "A",
+          text: "Líneas (A)",
         },
       ],
       vCumulo: "",
