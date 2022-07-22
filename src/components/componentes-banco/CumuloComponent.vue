@@ -43,16 +43,23 @@
           </v-row>
           <v-col cols="12" sm="6" md="3">
             <v-text-field
+              ref="refNroDocumento"
               v-model="vNroDocumento"
               outlined
               dense
               label="Nro Documento"
               hide-details
               clearable
+             
+               
+                @keyup.tab.native="$refs.refExtencion.focus(); "
+                
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="3">
             <v-autocomplete
+            
+              ref="refExtencion"
               v-model="vExtencion"
               :items="lstExtencion"
               outlined
@@ -60,48 +67,55 @@
               label="Extensión"
               hide-details
               clearable
+              @keyup.tab.native="$refs.refTipoProducto.focus(); "
             ></v-autocomplete>
           </v-col>
           <v-col cols="12" sm="6" md="3">
             <v-autocomplete
+            
+              ref="refTipoProducto"
               v-model="vTipoProducto"
               :items="lstTipoProducto"
               item-value="value"
               item-text="text"
               outlined
               dense
-      
               label="Tipo de Producto"
               hide-details
               clearable
+              @keyup.tab.native="$refs.refTipoOperacion.focus(); "
             ></v-autocomplete>
           </v-col>
           <v-col cols="12" sm="6" md="3">
             <v-autocomplete
+              ref="refTipoOperacion"
               v-model="vTipoOperacion"
               :items="lstTipoOperacion"
               item-value="value"
               item-text="text"
               outlined
               dense
-         
               label="Tipo de Operación"
               hide-details
               clearable
+              @keyup.tab.native="$refs.refJts.focus(); "
             ></v-autocomplete>
           </v-col>
 
           <v-col cols="12" sm="6" md="3">
             <v-text-field
+              ref="refJts"
               v-model="vJts"
               outlined
               dense
               label="JTS"
               hide-details
+              @keyup.tab.native="$refs.refBtnObtenerCumulo.focus(); "
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="3">
             <v-chip
+              ref="refBtnObtenerCumulo"
               class="ma-2"
               color="primary"
               text-color="white"
@@ -248,6 +262,7 @@ export default {
       }
       this.setDialogProgress({mostrar:false,sms:''});
     },
+
   },
 };
 </script>
