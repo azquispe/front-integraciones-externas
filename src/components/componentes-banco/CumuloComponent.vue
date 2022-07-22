@@ -112,8 +112,9 @@
           </v-col>
         </v-row>
         <v-row v-if="vCumulo != ''">
+          <h3>Cúmulo</h3>
           <v-col cols="12">
-            <h3>Cúmulo</h3>
+          
             <v-alert dense text type="success">
               {{ vCumulo }}
             </v-alert>

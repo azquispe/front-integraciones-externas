@@ -70,10 +70,9 @@ export default {
           };
 
           let tipoDoc = deudores.tipoIdentificacion;
-          let nroDoc =
-            deudores.numerodeIdentifiacion +
-            " " +
-            deudores.extensionIdentificacion;
+          let nroDoc = deudores.numerodeIdentifiacion;
+          let extencion = deudores.extensionIdentificacion;
+          let  tipoDeDeudor = deudores.tipoDeDeudor;
           this.setDialogProgress({
             mostrar: true,
             sms: "Verificando Datos Personas, espere...",
@@ -83,6 +82,9 @@ export default {
           let objDatosTodosPersona = r.data;
           objDatosTodosPersona.tipoDoc = tipoDoc;
           objDatosTodosPersona.nroDoc = nroDoc;
+          objDatosTodosPersona.extencion = extencion;
+          objDatosTodosPersona.tipoDeDeudor = tipoDeDeudor;
+          
           this.setDialogProgress({
             mostrar: true,
             sms: "Verificando Datos Cuenta, espere...",
