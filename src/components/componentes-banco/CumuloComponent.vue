@@ -50,29 +50,26 @@
               label="Nro Documento"
               hide-details
               clearable
-             
-               
-                @keyup.tab.native="$refs.refExtencion.focus(); "
-                
+              @keyup.tab.native="$refs.refExtencion.focus()"
             ></v-text-field>
           </v-col>
-          <v-col cols="12" sm="6" md="3">
+          <v-col cols="12" sm="6" md="3" v-if="this.vTipoDocumento === 'CI'">
             <v-autocomplete
-            
               ref="refExtencion"
               v-model="vExtencion"
               :items="lstExtencion"
+              item-value="value"
+              item-text="text"
               outlined
               dense
               label="Extensión"
               hide-details
               clearable
-              @keyup.tab.native="$refs.refTipoProducto.focus(); "
+              @keyup.tab.native="$refs.refTipoProducto.focus()"
             ></v-autocomplete>
           </v-col>
           <v-col cols="12" sm="6" md="3">
             <v-autocomplete
-            
               ref="refTipoProducto"
               v-model="vTipoProducto"
               :items="lstTipoProducto"
@@ -83,7 +80,7 @@
               label="Tipo de Producto"
               hide-details
               clearable
-              @keyup.tab.native="$refs.refTipoOperacion.focus(); "
+              @keyup.tab.native="$refs.refTipoOperacion.focus()"
             ></v-autocomplete>
           </v-col>
           <v-col cols="12" sm="6" md="3">
@@ -98,7 +95,7 @@
               label="Tipo de Operación"
               hide-details
               clearable
-              @keyup.tab.native="$refs.refJts.focus(); "
+              @keyup.tab.native="$refs.refJts.focus()"
             ></v-autocomplete>
           </v-col>
 
@@ -110,7 +107,7 @@
               dense
               label="JTS"
               hide-details
-              @keyup.tab.native="$refs.refBtnObtenerCumulo.focus(); "
+              @keyup.tab.native="$refs.refBtnObtenerCumulo.focus()"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="3">
@@ -128,7 +125,6 @@
         <v-row v-if="vCumulo != ''">
           <h3>Cúmulo</h3>
           <v-col cols="12">
-          
             <v-alert dense text type="success">
               {{ vCumulo }}
             </v-alert>
@@ -159,16 +155,50 @@ export default {
       vNroDocumento: "",
       vExtencion: "",
       lstExtencion: [
-        "SC",
-        "LP",
-        "CB",
-        "OR",
-        "TJ",
-        "BE",
-        "CH",
-        "PO",
-        "PA",
-        "PE",
+     {
+          value: " ",
+          text: "Sin Extención",
+        },
+        {
+          value: "SC",
+          text: "SC",
+        },
+        {
+          value: "LP",
+          text: "LP",
+        },
+        {
+          value: "CB",
+          text: "CB",
+        },
+        {
+          value: "OR",
+          text: "OR",
+        },
+        {
+          value: "TJ",
+          text: "TJ",
+        },
+        {
+          value: "BE",
+          text: "BE",
+        },
+        {
+          value: "CH",
+          text: "CH",
+        },
+        {
+          value: "PO",
+          text: "PO",
+        },
+        {
+          value: "PA",
+          text: "PA",
+        },
+        {
+          value: "PE",
+          text: "PE",
+        },
       ],
 
       //lstTipoDocumento: ["CI", "NIT"],
@@ -195,11 +225,11 @@ export default {
           value: "OR",
           text: "Préstamo Refinanciado (OR)",
         },
-           {
+        {
           value: "T",
           text: "Tarjetas (T)",
         },
-           {
+        {
           value: "A",
           text: "Líneas (A)",
         },
@@ -218,13 +248,16 @@ export default {
       this.vCumulo = "";
       let param = {
         tipoDocumento: this.vTipoDocumento,
-        extension: this.vExtencion,
+        extension: this.vTipoDocumento.trim() === "NIT" ? "  " : this.vExtencion,
         numeroDocumento: this.vNroDocumento,
         tipoproducto: this.vTipoProducto,
         jts: this.vJts,
         tipooperacion: this.vTipoOperacion,
       };
-      this.setDialogProgress({mostrar:true,sms:'Verificando Cúmulo, espere...'});
+      this.setDialogProgress({
+        mostrar: true,
+        sms: "Verificando Cúmulo, espere...",
+      });
       let r = await this.obtenerCumulo(param);
 
       // existe mensaje, mostrra error
@@ -240,7 +273,7 @@ export default {
           type: "error",
         });
         this.smsError = r.data.message;
-        this.setDialogProgress({mostrar:false,sms:''});
+        this.setDialogProgress({ mostrar: false, sms: "" });
         return;
       }
 
@@ -260,9 +293,8 @@ export default {
           type: "success",
         });
       }
-      this.setDialogProgress({mostrar:false,sms:''});
+      this.setDialogProgress({ mostrar: false, sms: "" });
     },
-
   },
 };
 </script>

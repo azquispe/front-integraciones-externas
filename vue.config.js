@@ -13,4 +13,16 @@ module.exports = {
       }
     }
   }*/
+  /*devServer: {
+
+    proxy: {
+      "^/openapi-stage": {
+        target: 'https://api.bg.com.bo',
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  }*/
 }
+
+

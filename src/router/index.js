@@ -55,7 +55,7 @@ const routes = [
   {
     path: '/prueba-api-consulta-segip',
     name: 'pruebaApiConsultaSegip',
-    component: () => import('../views/vistas-banco/PruebaApiConsultaSegip.vue')
+    component: () => import('../views/vistas-ganatec/PruebaApiConsultaSegip.vue')
 
   }
 

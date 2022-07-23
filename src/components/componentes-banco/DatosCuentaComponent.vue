@@ -26,21 +26,27 @@
             color="primary"
             label="NIT"
             value="NIT"
+            @keyup.tab.native="$refs.refNroDoc.focus()"
           ></v-switch>
         </v-row>
         <v-col cols="12" sm="6" md="3">
           <v-text-field
+          ref="refNroDoc"
             v-model="vNroDoc"
             outlined
             dense
             label="Número Documento"
             clearable
+            @keyup.tab.native="$refs.refExtencion.focus()"
           ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="3" v-if="this.vTipoDoc === 'CI'">
           <v-autocomplete
+          ref="refExtencion"
             v-model="vExtencion"
             :items="lstExtencion"
+                      item-value="value"
+              item-text="text"
             outlined
             dense
             label="Extensión"
@@ -114,16 +120,50 @@ export default {
       vTipoDoc: "CI",
 
       lstExtencion: [
-        "SC",
-        "LP",
-        "CB",
-        "OR",
-        "TJ",
-        "BE",
-        "CH",
-        "PO",
-        "PA",
-        "PE",
+  {
+          value: " ",
+          text: "Sin Extención",
+        },
+        {
+          value: "SC",
+          text: "SC",
+        },
+        {
+          value: "LP",
+          text: "LP",
+        },
+        {
+          value: "CB",
+          text: "CB",
+        },
+        {
+          value: "OR",
+          text: "OR",
+        },
+        {
+          value: "TJ",
+          text: "TJ",
+        },
+        {
+          value: "BE",
+          text: "BE",
+        },
+        {
+          value: "CH",
+          text: "CH",
+        },
+        {
+          value: "PO",
+          text: "PO",
+        },
+        {
+          value: "PA",
+          text: "PA",
+        },
+        {
+          value: "PE",
+          text: "PE",
+        },
       ],
       lstDatosCuenta: [],
 

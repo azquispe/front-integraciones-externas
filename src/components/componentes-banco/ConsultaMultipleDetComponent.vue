@@ -330,6 +330,7 @@
             color="primary"
             label="CI"
             value="CI"
+            @keyup.tab.native="$refs.refNroDoc.focus()"
           ></v-switch>
 
           <v-switch
@@ -339,11 +340,14 @@
             color="primary"
             label="NIT"
             value="NIT"
+            @keyup.tab.native="$refs.refNroDoc.focus()"
           ></v-switch>
         </v-row>
         <v-row cols="12" sm="6" md="3">
           <v-text-field
             v-model="objDatosTodosPersona.nroDoc"
+            ref="refNroDoc"
+                @keyup.tab.native="$refs.refExtencion.focus()"
             outlined
             dense
             label="Nro Documento"
@@ -353,6 +357,8 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-autocomplete
+          ref="refExtencion"
+          @keyup.tab.native="$refs.refTipoProducto.focus()"
             v-model="objDatosTodosPersona.extencion"
             :items="lstExtencion"
             outlined
@@ -364,6 +370,8 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-autocomplete
+          ref="refTipoProducto"
+                @keyup.tab.native="$refs.refTipoOperacion.focus()"
             v-model="vTipoProducto"
             :items="lstTipoProducto"
             item-value="value"
@@ -377,6 +385,8 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-autocomplete
+          ref="refTipoOperacion"
+             @keyup.tab.native="$refs.refJts.focus()"
             v-model="vTipoOperacion"
             :items="lstTipoOperacion"
             item-value="value"
@@ -390,6 +400,8 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-text-field
+          ref="refJts"
+          @keyup.tab.native="$refs.refBtnObtenerDatosCumulo.focus()"
             v-model="vJts"
             outlined
             dense
@@ -399,6 +411,7 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-chip
+          ref="refBtnObtenerDatosCumulo"
             class="ma-2 pa-2"
             color="primary"
             text-color="white"
