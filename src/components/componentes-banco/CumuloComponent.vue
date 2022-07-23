@@ -157,7 +157,7 @@ export default {
       lstExtencion: [
      {
           value: " ",
-          text: "Sin Extención",
+          text: "Sin Extensión",
         },
         {
           value: "SC",
