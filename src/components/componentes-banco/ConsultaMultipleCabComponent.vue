@@ -53,7 +53,7 @@ export default {
   },
 
   methods: {
-    ...mapMutations("api_banco", ["setDialogProgress"]),
+    ...mapMutations("utils", ["setDialogProgress"]),
     ...mapActions("api_banco", [
       "obtenerDatosPersona",
       "obtieneDatosCuenta",

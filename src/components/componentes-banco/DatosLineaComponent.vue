@@ -88,7 +88,7 @@ export default {
 
   methods: {
     ...mapActions("api_banco", ["obtenerDatosLinea"]),
-    ...mapMutations("api_banco", ["setDialogProgress"]),
+    ...mapMutations("utils", ["setDialogProgress"]),
 
     async clickObtenerDatosLinea() {
       this.smsError = "";

@@ -172,7 +172,7 @@ export default {
   },
   methods: {
     ...mapActions("api_banco", ["obtieneDatosCuenta"]),
-    ...mapMutations("api_banco", ["setDialogProgress"]),
+    ...mapMutations("utils", ["setDialogProgress"]),
 
     async clickObtenerDatosCuenta() {
       this.setDialogProgress({

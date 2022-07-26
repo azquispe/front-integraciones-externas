@@ -241,7 +241,7 @@ export default {
 
   methods: {
     ...mapActions("api_banco", ["obtenerCumulo"]),
-    ...mapMutations("api_banco", ["setDialogProgress"]),
+    ...mapMutations("utils", ["setDialogProgress"]),
 
     async clickObtenerDatosCumulo() {
       this.smsError = "";

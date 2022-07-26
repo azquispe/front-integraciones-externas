@@ -80,13 +80,12 @@
             >
           </template>
 
-         
-            <v-list-item  link  :to="{ name: 'pruebaApiConsultaSegip' }">
-              <v-list-item-title class="pl-12" v-text="'Segip'"></v-list-item-title>
-            </v-list-item>
-        
-
-       
+          <v-list-item link :to="{ name: 'pruebaApiConsultaSegip' }">
+            <v-list-item-title
+              class="pl-12"
+              v-text="'Segip'"
+            ></v-list-item-title>
+          </v-list-item>
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
@@ -125,7 +124,7 @@ export default {
     drawer: null,
   }),
   computed: {
-    ...mapGetters("api_banco", ["getDialogProgress"]),
+    ...mapGetters("utils", ["getDialogProgress"]),
   },
   methods: {},
 };

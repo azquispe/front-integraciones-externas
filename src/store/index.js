@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import api_banco from './modules/api-banco'
-import api_ganatech from './modules/api-ganatech'
+import api_heroku from './modules/api-heroku'
+import utils from './modules/utils'
 
 
 export default new Vuex.Store({
@@ -16,6 +17,7 @@ export default new Vuex.Store({
   },
   modules: {
     api_banco,
-    api_ganatech
+    api_heroku,
+    utils
   }
 })
