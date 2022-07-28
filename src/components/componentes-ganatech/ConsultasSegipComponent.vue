@@ -35,43 +35,39 @@
               @keyup.tab.native="$refs.refConsultasSegip.focus()"
             ></v-autocomplete>
           </v-col>
+
           <v-col cols="12" sm="6" md="3">
-            <v-menu
-              ref="menu"
-              v-model="menu"
-              :close-on-content-click="false"
-              :return-value.sync="vFechaNacimiento"
-              transition="scale-transition"
-              offset-y
-              min-width="auto"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  outlined
-                  dense
-                  v-model="vFechaNacimiento"
-                  label="Fecha de Nacimiento"
-                  prepend-icon="mdi-calendar"
-                  readonly
-                  clearable
-                  v-bind="attrs"
-                  v-on="on"
-                ></v-text-field>
-              </template>
-              <v-date-picker v-model="vFechaNacimiento" no-title scrollable>
-                <v-spacer></v-spacer>
-                <v-btn text color="primary" @click="menu = false">
-                  Cancel
-                </v-btn>
-                <v-btn
-                  text
-                  color="primary"
-                  @click="$refs.menu.save(vFechaNacimiento)"
-                >
-                  OK
-                </v-btn>
-              </v-date-picker>
-            </v-menu>
+           <v-menu
+          ref="menu1"
+          v-model="menu1"
+          :close-on-content-click="false"
+          transition="scale-transition"
+          offset-y
+          max-width="290px"
+          min-width="auto"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-text-field
+            dense
+            clearable
+            outlined
+              v-model="dateFormatted"
+              label="Fecha de Nacimiento"
+              hint="DD/MM/YYYY"
+              persistent-hint
+              
+              v-bind="attrs"
+              @blur="date = parseDate(dateFormatted)"
+              v-on="on"
+            ></v-text-field>
+          </template>
+          <v-date-picker
+            v-model="date"
+            no-title
+            @input="menu1 = false"
+          ></v-date-picker>
+        </v-menu>
+       <!-- <p>Date in ISO format: <strong>{{ date }}</strong></p>-->
           </v-col>
           <v-col cols="12" sm="6" md="3">
             <v-chip
@@ -99,7 +95,9 @@
           <span class="title rosa_FFB695--text">DATOS CONSULTA SEGIP</span>
 
           <div>
-            <span class="font-weight-regular">Documento de Identidad (CI): </span>
+            <span class="font-weight-regular"
+              >Documento de Identidad (CI):
+            </span>
             <span class="font-weight-thin">
               {{ objDatosPersona.documentNumber }}</span
             >
@@ -176,63 +174,71 @@
 <script>
 import { mapActions, mapMutations } from "vuex";
 export default {
-  data() {
-    return {
-      vFechaNacimiento: new Date(
-        Date.now() - new Date().getTimezoneOffset() * 60000
-      )
-        .toISOString()
-        .substr(0, 10),
-      menu: false,
-      vExtencion: "CI",
-      vNroDoc: "",
-      objDatosPersona: {},
-      smsError: "",
-      lstExtencion: [
-        {
-          value: "SC",
-          text: "SC",
-        },
-        {
-          value: "LP",
-          text: "LP",
-        },
-        {
-          value: "CB",
-          text: "CB",
-        },
-        {
-          value: "OR",
-          text: "OR",
-        },
-        {
-          value: "TJ",
-          text: "TJ",
-        },
-        {
-          value: "BE",
-          text: "BE",
-        },
-        {
-          value: "CH",
-          text: "CH",
-        },
-        {
-          value: "PO",
-          text: "PO",
-        },
-        {
-          value: "PA",
-          text: "PA",
-        },
-        {
-          value: "PE",
-          text: "PE",
-        },
-      ],
-    };
-  },
+  data: (vm) => ({
 
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      dateFormatted: vm.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
+      menu1: false,
+
+
+
+    vExtencion: "CI",
+    vNroDoc: "",
+    objDatosPersona: {},
+    smsError: "",
+    lstExtencion: [
+      {
+        value: "SC",
+        text: "SC",
+      },
+      {
+        value: "LP",
+        text: "LP",
+      },
+      {
+        value: "CB",
+        text: "CB",
+      },
+      {
+        value: "OR",
+        text: "OR",
+      },
+      {
+        value: "TJ",
+        text: "TJ",
+      },
+      {
+        value: "BE",
+        text: "BE",
+      },
+      {
+        value: "CH",
+        text: "CH",
+      },
+      {
+        value: "PO",
+        text: "PO",
+      },
+      {
+        value: "PA",
+        text: "PA",
+      },
+      {
+        value: "PE",
+        text: "PE",
+      },
+    ],
+  }),
+    computed: {
+      computedDateFormatted () {
+        return this.formatDate(this.date)
+      },
+    },
+     watch: {
+      date (val) {
+        this.dateFormatted = this.formatDate(this.date)
+      },
+    },
   methods: {
     ...mapActions("api_heroku", ["consultaSegip"]),
     ...mapMutations("utils", ["setDialogProgress"]),
@@ -246,7 +252,7 @@ export default {
       let request = {
         ci: this.vNroDoc,
         documentCity: this.vExtencion,
-        birthdate: this.formatDDMMYYYYDate(this.vFechaNacimiento),
+        birthdate: this.dateFormatted,
       };
       let r = await this.consultaSegip(request);
 
@@ -259,18 +265,18 @@ export default {
       this.objDatosPersona = r.data;
       this.setDialogProgress({ mostrar: false, sms: "" });
     },
-    formatDDMMYYYYDate(date) {
-      if (!date) return null;
+     formatDate (date) {
+        if (!date) return null
 
-      const [year, month, day] = date.split("-");
-      return `${day}/${month}/${year}`;
-    },
-    /*parseDate(date) {
-      if (!date) return null;
+        const [year, month, day] = date.split('-')
+        return `${day}/${month}/${year}`
+      },
+      parseDate (date) {
+        if (!date) return null
 
-      const [month, day, year] = date.split("/");
-      return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
-    },*/
+        const [day,month , year] = date.split('/')
+        return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+      },
   },
 };
 </script>
