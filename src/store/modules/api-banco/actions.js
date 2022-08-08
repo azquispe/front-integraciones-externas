@@ -75,7 +75,8 @@ export const obtenerCumulo = ({ commit }, objParam) => {
                     numeroDocumento: objParam.numeroDocumento,
                     tipoproducto: objParam.tipoproducto,
                     jts: objParam.jts,
-                    tipooperacion: objParam.tipooperacion
+                    tipooperacion: objParam.tipooperacion,
+                    codmoneda:objParam.codmoneda
                 }
             }).then(r => {
                 resolve(r);

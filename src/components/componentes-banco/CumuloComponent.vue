@@ -107,8 +107,23 @@
               dense
               label="JTS"
               hide-details
-              @keyup.tab.native="$refs.refBtnObtenerCumulo.focus()"
+              @keyup.tab.native="$refs.refTipoMoneda.focus()"
             ></v-text-field>
+          </v-col>
+            <v-col cols="12" sm="6" md="3">
+              <v-autocomplete
+              ref="refTipoMoneda"
+              v-model="vTipoMoneda"
+              :items="lstTipoMoneda"
+              item-value="value"
+              item-text="text"
+              outlined
+              dense
+              label="Tipo de Moneda"
+              hide-details
+              clearable
+              @keyup.tab.native="$refs.refBtnObtenerCumulo.focus()"
+            ></v-autocomplete>
           </v-col>
           <v-col cols="12" sm="6" md="3">
             <v-chip
@@ -150,6 +165,7 @@ export default {
     return {
       vTipoDocumento: "CI",
       vTipoProducto: "",
+      vTipoMoneda: "0",
       vTipoOperacion: "",
       vJts: 0,
       vNroDocumento: "",
@@ -212,6 +228,16 @@ export default {
           text: "No Regulada (N)",
         },
       ],
+         lstTipoMoneda: [
+        {
+          value: "0",
+          text: "Bolivianos (0)",
+        },
+        {
+          value: "2225",
+          text: "Dolares (2225)",
+        },
+      ],
       lstTipoOperacion: [
         {
           value: "O",
@@ -253,6 +279,7 @@ export default {
         tipoproducto: this.vTipoProducto,
         jts: this.vJts,
         tipooperacion: this.vTipoOperacion,
+        codmoneda:this.vTipoMoneda
       };
       this.setDialogProgress({
         mostrar: true,

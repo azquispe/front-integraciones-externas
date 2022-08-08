@@ -8,17 +8,19 @@
           ><b>{{ objDatosTodosPersona.tipoDoc + ": " }}</b>
         </span>
 
-        <span class="font-weight-regular primary--text"><b>{{ objDatosTodosPersona.nroDoc }}</b></span>
-        <span class="font-weight-regular primary--text" ><b>{{
-          " " + objDatosTodosPersona.extencion
-        }}</b></span>
+        <span class="font-weight-regular primary--text"
+          ><b>{{ objDatosTodosPersona.nroDoc }}</b></span
+        >
+        <span class="font-weight-regular primary--text"
+          ><b>{{ " " + objDatosTodosPersona.extencion }}</b></span
+        >
         <v-chip class="ma-2" color="primary" outlined pill small>
           <span class="font-weight-thin">
             {{ objDatosTodosPersona.tipoDeDeudor }}</span
           >
         </v-chip>
       </div>
-   
+
       <div>
         <span class="font-weight-regular">Nombre: </span>
         <span class="font-weight-thin">{{ objDatosTodosPersona.nombre }}</span>
@@ -347,7 +349,7 @@
           <v-text-field
             v-model="objDatosTodosPersona.nroDoc"
             ref="refNroDoc"
-                @keyup.tab.native="$refs.refExtencion.focus()"
+            @keyup.tab.native="$refs.refExtencion.focus()"
             outlined
             dense
             label="Nro Documento"
@@ -357,8 +359,8 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-autocomplete
-          ref="refExtencion"
-          @keyup.tab.native="$refs.refTipoProducto.focus()"
+            ref="refExtencion"
+            @keyup.tab.native="$refs.refTipoProducto.focus()"
             v-model="objDatosTodosPersona.extencion"
             :items="lstExtencion"
             outlined
@@ -370,8 +372,8 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-autocomplete
-          ref="refTipoProducto"
-                @keyup.tab.native="$refs.refTipoOperacion.focus()"
+            ref="refTipoProducto"
+            @keyup.tab.native="$refs.refTipoOperacion.focus()"
             v-model="vTipoProducto"
             :items="lstTipoProducto"
             item-value="value"
@@ -385,8 +387,8 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-autocomplete
-          ref="refTipoOperacion"
-             @keyup.tab.native="$refs.refJts.focus()"
+            ref="refTipoOperacion"
+            @keyup.tab.native="$refs.refJts.focus()"
             v-model="vTipoOperacion"
             :items="lstTipoOperacion"
             item-value="value"
@@ -400,8 +402,8 @@
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-text-field
-          ref="refJts"
-          @keyup.tab.native="$refs.refBtnObtenerDatosCumulo.focus()"
+            ref="refJts"
+            @keyup.tab.native="$refs.refTipoMoneda.focus()"
             v-model="vJts"
             outlined
             dense
@@ -410,8 +412,26 @@
           ></v-text-field>
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
+         
+          <v-autocomplete
+            ref="refTipoMoneda"
+            v-model="vTipoMoneda"
+            :items="lstTipoMoneda"
+            item-value="value"
+            item-text="text"
+            outlined
+            dense
+            label="Tipo de Moneda"
+            hide-details
+            clearable
+            @keyup.tab.native="$refs.refBtnObtenerDatosCumulo.focus()"
+          ></v-autocomplete>
+        
+        </v-row>
+        
+        <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-chip
-          ref="refBtnObtenerDatosCumulo"
+            ref="refBtnObtenerDatosCumulo"
             class="ma-2 pa-2"
             color="primary"
             text-color="white"
@@ -420,10 +440,11 @@
             Verificar
           </v-chip>
         </v-row>
+
         <v-col v-if="vCumulo != ''">
-         <h3>Cúmulo</h3><br>
+          <h3>Cúmulo</h3>
+          <br />
           <v-row cols="12">
-           
             <v-alert dense text type="success">
               {{ vCumulo }}
             </v-alert>
@@ -497,7 +518,17 @@ export default {
       vTipoProducto: "",
       vTipoOperacion: "",
       vJts: 0,
-
+      vTipoMoneda: "0",
+      lstTipoMoneda: [
+        {
+          value: "0",
+          text: "Bolivianos (0)",
+        },
+        {
+          value: "2225",
+          text: "Dolares (2225)",
+        },
+      ],
       //lstTipoDocumento: ["CI", "NIT"],
       lstExtencion: [
         "SC",
@@ -560,6 +591,7 @@ export default {
         tipoproducto: this.vTipoProducto,
         jts: this.vJts,
         tipooperacion: this.vTipoOperacion,
+        codmoneda:this.vTipoMoneda
       };
       this.setDialogProgress({
         mostrar: true,
