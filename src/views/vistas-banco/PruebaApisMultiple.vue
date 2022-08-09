@@ -52,6 +52,7 @@
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import datosFinancierosMultipleComponent from "@/components/componentes-banco/DatosFinancierosMultipleComponent.vue";
 import consultaMultipleCabComponent from "@/components/componentes-banco/ConsultaMultipleCabComponent.vue";
+
 export default {
   components: {
     datosFinancierosMultipleComponent,
@@ -83,8 +84,12 @@ export default {
         return;
       }
 
+      console.log("RESPUESTA DATOS FINANCIEROS");
+      console.log(JSON.stringify(r.data));
 
       this.objDatosFinancieros = r.data;
+      console.log("DATO FINCNAIEROS")
+      console.log(JSON.stringify(this.objDatosFinancieros))
       this.setDialogProgress({ mostrar: false, sms: "" });
     },
   },

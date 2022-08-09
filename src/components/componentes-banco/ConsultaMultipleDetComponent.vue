@@ -346,16 +346,32 @@
           ></v-switch>
         </v-row>
         <v-row cols="12" sm="6" md="3">
+          
           <v-text-field
             v-model="objDatosTodosPersona.nroDoc"
             ref="refNroDoc"
-            @keyup.tab.native="$refs.refExtencion.focus()"
+            @keyup.tab.native="$refs.refComDoc.focus()"
             outlined
             dense
             label="Nro Documento"
             hide-details
             clearable
           ></v-text-field>
+        </v-row>
+        <v-row  cols="12" sm="6" md="3" class="pt-3">
+
+           <v-text-field
+            ref="refComDoc"
+            v-model="objDatosTodosPersona.complementoIdentificacion"
+            maxlength="3"
+            outlined
+            dense
+            label="Complemento"
+            clearable
+            hide-details
+            @keyup.tab.native="$refs.refExtencion.focus()"
+          ></v-text-field>
+
         </v-row>
         <v-row cols="12" sm="6" md="3" class="pt-3">
           <v-autocomplete
@@ -588,6 +604,7 @@ export default {
         tipoDocumento: this.objDatosTodosPersona.tipoDoc,
         extension: this.objDatosTodosPersona.extencion,
         numeroDocumento: this.objDatosTodosPersona.nroDoc,
+        extDuplicado : this.objDatosTodosPersona.complementoIdentificacion.trim(),
         tipoproducto: this.vTipoProducto,
         jts: this.vJts,
         tipooperacion: this.vTipoOperacion,

@@ -63,16 +63,18 @@ export default {
       this.smsError="";
       try {
         listaDeudores.forEach(async (deudores) => {
+         
           let obj = {
             tipoDocumento: deudores.tipoIdentificacion,
             extension: deudores.extensionIdentificacion,
             numeroDocumento: deudores.numerodeIdentifiacion,
+            extDuplicado: deudores.complementoIdentificacion.trim()
           };
 
           let tipoDoc = deudores.tipoIdentificacion;
           let nroDoc = deudores.numerodeIdentifiacion;
           let extencion = deudores.extensionIdentificacion;
-          let  tipoDeDeudor = deudores.tipoDeDeudor;
+          let tipoDeDeudor = deudores.tipoDeDeudor;
           this.setDialogProgress({
             mostrar: true,
             sms: "Verificando Datos Personas, espere...",
@@ -82,6 +84,7 @@ export default {
           let objDatosTodosPersona = r.data;
           objDatosTodosPersona.tipoDoc = tipoDoc;
           objDatosTodosPersona.nroDoc = nroDoc;
+          objDatosTodosPersona.complementoIdentificacion = deudores.complementoIdentificacion.trim();
           objDatosTodosPersona.extencion = extencion;
           objDatosTodosPersona.tipoDeDeudor = tipoDeDeudor;
           
@@ -121,7 +124,7 @@ export default {
           deudores.numerodeIdentifiacion +
           " " +
           deudores.extensionIdentificacion;
-          console.log(this.smsError);
+          
         this.setDialogProgress({ mostrar: false, sms: "" });
       }
     },

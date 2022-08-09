@@ -50,9 +50,22 @@
               label="Nro Documento"
               hide-details
               clearable
-              @keyup.tab.native="$refs.refExtencion.focus()"
+              @keyup.tab.native="$refs.refComDoc.focus()"
             ></v-text-field>
           </v-col>
+           <v-col cols="12" sm="6" md="3" v-if="this.vTipoDocumento === 'CI'">
+          <v-text-field
+            ref="refComDoc"
+            v-model="vComplemento"
+            maxlength="3"
+            outlined
+            dense
+            label="Complemento"
+            clearable
+            hide-details
+            @keyup.tab.native="$refs.refExtencion.focus()"
+          ></v-text-field>
+        </v-col>
           <v-col cols="12" sm="6" md="3" v-if="this.vTipoDocumento === 'CI'">
             <v-autocomplete
               ref="refExtencion"
@@ -169,6 +182,7 @@ export default {
       vTipoOperacion: "",
       vJts: 0,
       vNroDocumento: "",
+      vComplemento:"",
       vExtencion: "",
       lstExtencion: [
      {
@@ -276,6 +290,7 @@ export default {
         tipoDocumento: this.vTipoDocumento,
         extension: this.vTipoDocumento.trim() === "NIT" ? "  " : this.vExtencion,
         numeroDocumento: this.vNroDocumento,
+        extDuplicado:this.vComplemento.trim(),
         tipoproducto: this.vTipoProducto,
         jts: this.vJts,
         tipooperacion: this.vTipoOperacion,

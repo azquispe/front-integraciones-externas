@@ -49,7 +49,8 @@ export const obtenerDatosPersona = ({ commit }, objParam) => {
                 params: {
                     tipoDocumento: objParam.tipoDocumento,
                     extension: objParam.extension,
-                    numeroDocumento: objParam.numeroDocumento
+                    numeroDocumento: objParam.numeroDocumento,
+                    extDuplicado:objParam.extDuplicado  
 
                 }
             }).then(r => {
@@ -73,6 +74,7 @@ export const obtenerCumulo = ({ commit }, objParam) => {
                     tipoDocumento: objParam.tipoDocumento,
                     extension: objParam.extension,
                     numeroDocumento: objParam.numeroDocumento,
+                    extDuplicado:objParam.extDuplicado  ,
                     tipoproducto: objParam.tipoproducto,
                     jts: objParam.jts,
                     tipooperacion: objParam.tipooperacion,
@@ -111,7 +113,8 @@ export const obtieneDatosCuenta = ({ commit }, objParam) => {
             params: {
                 tipoDocumento: objParam.tipoDocumento,
                 extension: objParam.extension,
-                numeroDocumento: objParam.numeroDocumento
+                numeroDocumento: objParam.numeroDocumento,
+                extDuplicado:objParam.extDuplicado  
             }
         }).then(r => {
             resolve(r);

@@ -3,8 +3,8 @@
     <v-toolbar dense flat>
       <v-toolbar-title>
         <span class="verde_53A808--text">
-          Datos Financieros </span
-        ></v-toolbar-title
+          Datos Financieros
+        </span></v-toolbar-title
       >
     </v-toolbar>
     <div class="pa-5">
@@ -31,29 +31,44 @@
         </v-row>
         <v-col cols="12" sm="6" md="3">
           <v-text-field
-          ref="refNroDoc"
+            ref="refNroDoc"
             v-model="vNroDoc"
             outlined
             dense
             label="Número Documento"
             clearable
+            @keyup.tab.native="$refs.refComDoc.focus()"
+          ></v-text-field>
+        </v-col>
+         <v-col cols="12" sm="6" md="3" v-if="this.vTipoDoc === 'CI'">
+          <v-text-field
+            ref="refComDoc"
+            v-model="vComplemento"
+            maxlength="3"
+            outlined
+            dense
+            label="Complemento"
+            clearable
+            hide-details
             @keyup.tab.native="$refs.refExtencion.focus()"
           ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="3" v-if="this.vTipoDoc === 'CI'">
           <v-autocomplete
-          ref="refExtencion"
+            ref="refExtencion"
             v-model="vExtencion"
             :items="lstExtencion"
-                      item-value="value"
-              item-text="text"
+            item-value="value"
+            item-text="text"
             outlined
             dense
             label="Extensión"
             hide-details
+             @keyup.tab.native="$refs.refComDoc.focus()"
             clearable
           ></v-autocomplete>
         </v-col>
+       
         <v-col cols="12" sm="6" md="3">
           <v-chip
             class="ma-2"
@@ -80,31 +95,30 @@
         v-if="lstDatosCuenta.length > 0"
       >
         <span class="title rosa_FFB695--text">DATOS CUENTA</span>
-        
-          <div v-for="obj in lstDatosCuenta" :key="obj" class="pa-0">
-            <div>
-              <span class="font-weight-regular">ID: </span>
-              <span class="font-weight-thin"> {{ obj.id }}</span>
-            </div>
-            <div>
-              <span class="font-weight-regular">Cuenta: </span>
-              <span class="font-weight-thin"> {{ obj.cuenta }}</span>
-            </div>
-            <div>
-              <span class="font-weight-regular">Moneda: </span>
-              <span class="font-weight-thin"> {{ obj.moneda }}</span>
-            </div>
-            <div>
-              <span class="font-weight-regular">Tipo de Producto: </span>
-              <span class="font-weight-thin"> {{ obj.tipoProducto }}</span>
-            </div>
-            <div>
-              <span class="font-weight-regular">Estado: </span>
-              <span class="font-weight-thin"> {{ obj.estado }}</span>
-            </div>
-            <v-divider></v-divider>
+
+        <div v-for="obj in lstDatosCuenta" :key="obj" class="pa-0">
+          <div>
+            <span class="font-weight-regular">ID: </span>
+            <span class="font-weight-thin"> {{ obj.id }}</span>
           </div>
-        
+          <div>
+            <span class="font-weight-regular">Cuenta: </span>
+            <span class="font-weight-thin"> {{ obj.cuenta }}</span>
+          </div>
+          <div>
+            <span class="font-weight-regular">Moneda: </span>
+            <span class="font-weight-thin"> {{ obj.moneda }}</span>
+          </div>
+          <div>
+            <span class="font-weight-regular">Tipo de Producto: </span>
+            <span class="font-weight-thin"> {{ obj.tipoProducto }}</span>
+          </div>
+          <div>
+            <span class="font-weight-regular">Estado: </span>
+            <span class="font-weight-thin"> {{ obj.estado }}</span>
+          </div>
+          <v-divider></v-divider>
+        </div>
       </v-card>
     </div>
   </v-card>
@@ -117,10 +131,11 @@ export default {
     return {
       vExtencion: "",
       vNroDoc: "",
+      vComplemento: "",
       vTipoDoc: "CI",
 
       lstExtencion: [
-  {
+        {
           value: " ",
           text: "Sin Extensión",
         },
@@ -186,6 +201,7 @@ export default {
         tipoDocumento: this.vTipoDoc,
         extension: this.vTipoDoc.trim() === "NIT" ? "  " : this.vExtencion,
         numeroDocumento: this.vNroDoc,
+        extDuplicado: this.vComplemento.trim(),
       };
       let r = await this.obtieneDatosCuenta(obj);
       if (r.data && r.data.statusCode) {

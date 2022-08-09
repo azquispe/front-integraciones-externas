@@ -32,7 +32,7 @@
           <v-col cols="12" sm="6" md="3">
             <v-text-field
               ref="refNroDoc"
-              @keyup.tab.native="$refs.refExtencion.focus()"
+              @keyup.tab.native="$refs.refComDoc.focus()"
               v-model="vNroDoc"
               outlined
               dense
@@ -41,6 +41,19 @@
               hide-details
             ></v-text-field>
           </v-col>
+           <v-col cols="12" sm="6" md="3" v-if="this.vTipoDoc === 'CI'">
+            <v-text-field
+              ref="refComDoc"
+              @keyup.tab.native="$refs.refExtencion.focus()"
+              v-model="vComplemento"
+              maxlength="3"
+              outlined
+              dense
+              label="Complemento"
+              clearable
+              hide-details
+            ></v-text-field>
+           </v-col>
           <v-col cols="12" sm="6" md="3" v-if="this.vTipoDoc === 'CI'">
             <v-autocomplete
               ref="refExtencion"
@@ -396,6 +409,7 @@ export default {
       smsError: "",
       vExtencion: "",
       vNroDoc: "",
+      vComplemento: "",
       vTipoDoc: "CI",
       //lstTipoDocumento: ["CI", "NIT"],
       lstExtencion: [
@@ -489,6 +503,7 @@ export default {
         tipoDocumento: this.vTipoDoc.trim(),
         extension: this.vTipoDoc.trim() === "NIT" ? "  " : this.vExtencion,
         numeroDocumento: this.vNroDoc.trim(),
+        extDuplicado:this.vComplemento.trim()
       };
       let r = await this.obtenerDatosPersona(obj);
       if (r.data && r.data.statusCode) {
