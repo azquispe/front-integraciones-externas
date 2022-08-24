@@ -117,7 +117,20 @@ export const obtieneDatosCuenta = ({ commit }, objParam) => {
                 extDuplicado:objParam.extDuplicado  
             }
         }).then(r => {
-            resolve(r);
+
+            // temporal
+            let lst=[];
+            let perro = r.data;
+            let claves = Object.keys(perro); 
+            for(let i=0; i< claves.length; i++){
+            let clave = claves[i];
+                lst.push(perro[clave])
+            }
+            resolve({data:lst})
+
+
+            //oficial
+            //resolve(r);
         }).catch((err) => {
             resolve(err.response);
         })

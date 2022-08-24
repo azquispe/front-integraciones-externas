@@ -97,6 +97,7 @@
         <span class="title rosa_FFB695--text">DATOS CUENTA</span>
 
         <div v-for="obj in lstDatosCuenta" :key="obj" class="pa-0">
+        
           <div>
             <span class="font-weight-regular">ID: </span>
             <span class="font-weight-thin"> {{ obj.id }}</span>
@@ -220,7 +221,12 @@ export default {
         return;
       }
 
+
+  
+
       this.lstDatosCuenta = r.data;
+
+
       this.$notify({
         title: "Mensaje",
         text: "Busqueda Exitosa",
