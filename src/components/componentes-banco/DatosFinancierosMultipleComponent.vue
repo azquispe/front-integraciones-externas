@@ -64,8 +64,12 @@
                 <span class="font-weight-thin">{{ objDatosFinancieros.lineaDeCredito.montoAprobado }}</span>
               </div>
               <div >
-                 <span class="font-weight-regular">Fecha de vigencia : </span>
+                 <span class="font-weight-regular">Fecha Inicio vigencia : </span>
                 <span class="font-weight-thin">{{ objDatosFinancieros.lineaDeCredito.fechaDeVigencia }}</span>
+              </div>
+              <div >
+                 <span class="font-weight-regular">Fecha Fin vigencia : </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.lineaDeCredito.fechavtolinea }}</span>
               </div>
             
           </v-card>

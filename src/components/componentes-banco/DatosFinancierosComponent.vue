@@ -90,10 +90,22 @@
                 <span class="font-weight-regular">Monto Aprobado: </span>
                <span class="font-weight-thin"> {{ objDatosFinancieros.lineaDeCredito.montoAprobado }}</span>
               </div>
-              <div >
+             <!-- <div >
                 <span class="font-weight-regular">Fecha de vigencia : </span>
                <span class="font-weight-thin"> {{ objDatosFinancieros.lineaDeCredito.fechaDeVigencia }}</span>
+              </div>-->
+
+
+              <div >
+                 <span class="font-weight-regular">Fecha Inicio vigencia : </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.lineaDeCredito.fechaDeVigencia }}</span>
               </div>
+              <div >
+                 <span class="font-weight-regular">Fecha Fin vigencia : </span>
+                <span class="font-weight-thin">{{ objDatosFinancieros.lineaDeCredito.fechavtolinea }}</span>
+              </div>
+
+
           
           </v-card>
           <v-card outlined class="ma-2  pa-2"  max-width="300">
