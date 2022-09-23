@@ -3,6 +3,7 @@
 </template>
 <script>
 
+  
 import cumuloComponent from '@/components/componentes-banco/CumuloComponent.vue'
 export default {
   components:{
