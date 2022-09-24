@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
     }
 });
 
-let url = "https://integraciones-externas.herokuapp.com";
+let url = "https://api-integraciones-externas.azurewebsites.net";
 
 
 export const consultaSegip = ({ commit }, objParam) => {
