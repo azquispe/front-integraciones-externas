@@ -65,7 +65,7 @@ export const obtenerDatosPersona = ({ commit }, objParam) => {
 
 
 
-export const obtenerCumulo = ({ commit }, objParam) => {
+export const obtenerCumuloOld = ({ commit }, objParam) => {
     return new Promise((resolve, reject) => {
 
         axiosInstance.get(url + "/v1/datos-cumulo/obtener",
@@ -77,6 +77,29 @@ export const obtenerCumulo = ({ commit }, objParam) => {
                     extDuplicado:objParam.extDuplicado  ,
                     tipoproducto: objParam.tipoproducto,
                     jts: objParam.jts,
+                    tipooperacion: objParam.tipooperacion,
+                    codmoneda:objParam.codmoneda
+                }
+            }).then(r => {
+                resolve(r);
+            }).catch((err) => {
+                resolve(err.response);
+            })
+    })
+}
+
+export const obtenerCumulo = ({ commit }, objParam) => {
+    return new Promise((resolve, reject) => {
+
+        axiosInstance.get(url + "/v1/datos-cumulo/obtener",
+            {
+                params: {
+                    tipoDocumento: objParam.tipoDocumento,
+                    extension: objParam.extension,
+                    numeroDocumento: objParam.numeroDocumento,
+                    extDuplicado:objParam.extDuplicado  ,
+                    tipoproducto: objParam.tipoproducto,
+                    nroOpracionCancelar: objParam.nroOperacionCancelar,
                     tipooperacion: objParam.tipooperacion,
                     codmoneda:objParam.codmoneda
                 }

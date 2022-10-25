@@ -115,10 +115,10 @@
           <v-col cols="12" sm="6" md="3">
             <v-text-field
               ref="refJts"
-              v-model="vNroOperacionCancelar"
+              v-model="vJts"
               outlined
               dense
-              label="Número Operación Cancelar"
+              label="JTS"
               hide-details
               @keyup.tab.native="$refs.refTipoMoneda.focus()"
             ></v-text-field>
@@ -180,7 +180,7 @@ export default {
       vTipoProducto: "",
       vTipoMoneda: "0",
       vTipoOperacion: "",
-      vNroOperacionCancelar:0,
+      vJts: 0,
       vNroDocumento: "",
       vComplemento:"",
       vExtencion: "",
@@ -292,7 +292,7 @@ export default {
         numeroDocumento: this.vNroDocumento,
         extDuplicado:this.vComplemento.trim(),
         tipoproducto: this.vTipoProducto,
-        nroOperacionCancelar: this.vNroOperacionCancelar,
+        jts: this.vJts,
         tipooperacion: this.vTipoOperacion,
         codmoneda:this.vTipoMoneda
       };

@@ -420,10 +420,10 @@
           <v-text-field
             ref="refJts"
             @keyup.tab.native="$refs.refTipoMoneda.focus()"
-            v-model="vJts"
+            v-model="vNroOperacionCancelar"
             outlined
             dense
-            label="JTS"
+            label="Número Operación Cancelar"
             hide-details
           ></v-text-field>
         </v-row>
@@ -533,7 +533,7 @@ export default {
       //vTipoDoc: "CI",
       vTipoProducto: "",
       vTipoOperacion: "",
-      vJts: 0,
+      vNroOperacionCancelar: 0,
       vTipoMoneda: "0",
       lstTipoMoneda: [
         {
@@ -606,7 +606,7 @@ export default {
         numeroDocumento: this.objDatosTodosPersona.nroDoc,
         extDuplicado : this.objDatosTodosPersona.complementoIdentificacion.trim(),
         tipoproducto: this.vTipoProducto,
-        jts: this.vJts,
+        nroOperacionCancelar: this.vNroOperacionCancelar,
         tipooperacion: this.vTipoOperacion,
         codmoneda:this.vTipoMoneda
       };
