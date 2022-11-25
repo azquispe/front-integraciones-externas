@@ -99,7 +99,7 @@ export const obtenerCumulo = ({ commit }, objParam) => {
                     numeroDocumento: objParam.numeroDocumento,
                     extDuplicado:objParam.extDuplicado  ,
                     tipoproducto: objParam.tipoproducto,
-                    nroOpracionCancelar: objParam.nroOperacionCancelar,
+                    nroOperacionCancelar: objParam.nroOperacionCancelar,
                     tipooperacion: objParam.tipooperacion,
                     codmoneda:objParam.codmoneda
                 }
