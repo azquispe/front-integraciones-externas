@@ -72,6 +72,7 @@
             </v-list-item>
           </v-list-group>
         </v-list-group>
+
         <v-list-group :value="true" prepend-icon="mdi-cloud-outline">
           <template v-slot:activator>
             <v-list-item-title
@@ -79,11 +80,30 @@
               Ganatech</v-list-item-title
             >
           </template>
-
           <v-list-item link :to="{ name: 'pruebaApiConsultaSegip' }">
             <v-list-item-title
               class="pl-12"
               v-text="'Segip'"
+            ></v-list-item-title>
+          </v-list-item>
+        </v-list-group>
+    <v-list-group :value="true" prepend-icon="mdi-cloud-outline">
+          <template v-slot:activator>
+            <v-list-item-title
+              >Integraciones<br />
+              Ganaseguros</v-list-item-title
+            >
+          </template>
+          <v-list-item link :to="{ name: 'formAviso' }">
+            <v-list-item-title
+              class="pl-12"
+              v-text="'Registrar Aviso'"
+            ></v-list-item-title>
+          </v-list-item>
+          <v-list-item link :to="{ name: 'formOferta' }">
+            <v-list-item-title
+              class="pl-12"
+              v-text="'Registrar Oferta'"
             ></v-list-item-title>
           </v-list-item>
         </v-list-group>

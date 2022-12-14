@@ -5,6 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 require('./plugins/vue-axios')
 require('./plugins/vue-notification')
+require('./plugins/vue-sweetalert2')
 
 Vue.config.productionTip = false
 

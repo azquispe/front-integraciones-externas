@@ -57,7 +57,20 @@ const routes = [
     name: 'pruebaApiConsultaSegip',
     component: () => import('../views/vistas-ganatec/PruebaApiConsultaSegip.vue')
 
+  },
+  {
+    path: '/form-aviso',
+    name: 'formAviso',
+    component: () => import('../views/vistas-ganaseguros/AvisoView.vue')
+
+  },
+  {
+    path: '/form-oferta',
+    name: 'formOferta',
+    component: () => import('../views/vistas-ganaseguros/OfertaView.vue')
+
   }
+
 
 
 
