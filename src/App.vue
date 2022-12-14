@@ -87,7 +87,7 @@
             ></v-list-item-title>
           </v-list-item>
         </v-list-group>
-    <v-list-group :value="true" prepend-icon="mdi-cloud-outline">
+    <!--<v-list-group :value="true" prepend-icon="mdi-cloud-outline">
           <template v-slot:activator>
             <v-list-item-title
               >Integraciones<br />
@@ -106,7 +106,7 @@
               v-text="'Registrar Oferta'"
             ></v-list-item-title>
           </v-list-item>
-        </v-list-group>
+        </v-list-group>-->
       </v-list>
     </v-navigation-drawer>
 

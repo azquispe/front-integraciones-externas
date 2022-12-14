@@ -7,7 +7,7 @@ var axios = require("axios");
 
 
 //let url = "http://192.168.100.22:8001/api";
-let url = "https://api-movil-web.azurewebsites.net/";
+let url = "https://api-movil-web.azurewebsites.net/api";
 
 
 export const registrarAviso = ({ commit }, obj) => {
